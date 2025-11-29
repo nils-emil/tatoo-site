@@ -50,16 +50,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-        <div className="flex space-x-2 mb-2">
-          <div className="w-2 h-2 rounded-full bg-accent"></div>
-          <div className="w-2 h-2 rounded-full bg-accent"></div>
-          <div className="w-2 h-2 rounded-full bg-accent"></div>
-        </div>
-        <span className="text-sm text-light-gray">Scroll Down</span>
-      </div>
     </div>
   );
 }

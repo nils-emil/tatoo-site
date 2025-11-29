@@ -96,87 +96,12 @@ const galleryItems: GalleryItem[] = [
 
 export default function GalleryPage() {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
-  const [activeFilters, setActiveFilters] = useState<{
-    category: string | null;
-    bodyPart: string | null;
-  }>({
-    category: null,
-    bodyPart: null,
-  });
-
-  // Filter gallery items based on active filters
-  const filteredItems = galleryItems.filter(item => {
-    if (activeFilters.category && !item.category.includes(activeFilters.category)) {
-      return false;
-    }
-    if (activeFilters.bodyPart && item.bodyPart !== activeFilters.bodyPart) {
-      return false;
-    }
-    return true;
-  });
-
-  // Toggle filter
-  const toggleFilter = (type: 'category' | 'bodyPart', value: string) => {
-    setActiveFilters(prev => ({
-      ...prev,
-      [type]: prev[type] === value ? null : value,
-    }));
-  };
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <h1 className="text-3xl md:text-4xl mb-8 text-center">GALLERY</h1>
-      
-      {/* Filters */}
-      <div className="mb-8">
-        <div className="flex flex-wrap justify-center gap-4 mb-4">
-          <h2 className="w-full text-center text-xl mb-2">Style</h2>
-          <button 
-            className={`px-4 py-2 border border-accent rounded-full transition-colors ${activeFilters.category === 'Blackwork' ? 'bg-accent text-dark-gray' : 'bg-transparent hover:bg-accent hover:bg-opacity-20'}`}
-            onClick={() => toggleFilter('category', 'Blackwork')}
-          >
-            Blackwork
-          </button>
-          <button 
-            className={`px-4 py-2 border border-accent rounded-full transition-colors ${activeFilters.category === 'Linework' ? 'bg-accent text-dark-gray' : 'bg-transparent hover:bg-accent hover:bg-opacity-20'}`}
-            onClick={() => toggleFilter('category', 'Linework')}
-          >
-            Linework
-          </button>
-          <button 
-            className={`px-4 py-2 border border-accent rounded-full transition-colors ${activeFilters.category === 'Flash' ? 'bg-accent text-dark-gray' : 'bg-transparent hover:bg-accent hover:bg-opacity-20'}`}
-            onClick={() => toggleFilter('category', 'Flash')}
-          >
-            Flash
-          </button>
-        </div>
-        
-        <div className="flex flex-wrap justify-center gap-4">
-          <h2 className="w-full text-center text-xl mb-2">Placement</h2>
-          <button 
-            className={`px-4 py-2 border border-accent rounded-full transition-colors ${activeFilters.bodyPart === 'Arms' ? 'bg-accent text-dark-gray' : 'bg-transparent hover:bg-accent hover:bg-opacity-20'}`}
-            onClick={() => toggleFilter('bodyPart', 'Arms')}
-          >
-            Arms
-          </button>
-          <button 
-            className={`px-4 py-2 border border-accent rounded-full transition-colors ${activeFilters.bodyPart === 'Legs' ? 'bg-accent text-dark-gray' : 'bg-transparent hover:bg-accent hover:bg-opacity-20'}`}
-            onClick={() => toggleFilter('bodyPart', 'Legs')}
-          >
-            Legs
-          </button>
-          <button 
-            className={`px-4 py-2 border border-accent rounded-full transition-colors ${activeFilters.bodyPart === 'Torso' ? 'bg-accent text-dark-gray' : 'bg-transparent hover:bg-accent hover:bg-opacity-20'}`}
-            onClick={() => toggleFilter('bodyPart', 'Torso')}
-          >
-            Torso
-          </button>
-        </div>
-      </div>
-      
       {/* Gallery Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-        {filteredItems.map((item) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        {galleryItems.map((item) => (
           <div 
             key={item.id} 
             className="aspect-square border border-accent cursor-pointer overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(230,161,68,0.5)]"
@@ -194,54 +119,21 @@ export default function GalleryPage() {
           </div>
         ))}
       </div>
-      
+
       {/* Lightbox */}
       {selectedItem && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4" onClick={() => setSelectedItem(null)}>
-          <div className="bg-dark-gray border-2 border-accent max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6" onClick={(e) => e.stopPropagation()}>
-            <div className="flex justify-between items-start mb-4">
-              <h2 className="text-2xl text-accent">{selectedItem.title}</h2>
-              <button 
-                className="text-light-gray hover:text-accent"
-                onClick={() => setSelectedItem(null)}
-              >
-                ✕
-              </button>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="aspect-square bg-black border border-accent">
-                {/* Placeholder for large tattoo image */}
-                <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-light-gray">Tattoo Image</span>
-                </div>
-              </div>
-              
-              <div>
-                <div className="mb-6">
-                  <h3 className="text-xl text-accent mb-2">Description</h3>
-                  <p className="text-light-gray">{selectedItem.description}</p>
-                </div>
-                
-                {selectedItem.story && (
-                  <div className="mb-6">
-                    <h3 className="text-xl text-accent mb-2">Story</h3>
-                    <p className="text-light-gray">{selectedItem.story}</p>
-                  </div>
-                )}
-                
-                <div className="mb-6">
-                  <h3 className="text-xl text-accent mb-2">Details</h3>
-                  <p className="text-light-gray">Style: {selectedItem.category.join(', ')}</p>
-                  <p className="text-light-gray">Placement: {selectedItem.bodyPart}</p>
-                </div>
-                
-                <Link 
-                  href={`/booking?inspiration=${selectedItem.id}`}
-                  className="inline-block px-6 py-3 border-2 border-accent text-accent hover:bg-accent hover:text-dark-gray transition-colors"
-                >
-                  Book Similar Tattoo
-                </Link>
+        <div className="fixed inset-0 bg-black bg-opacity-100 z-50 flex items-center justify-center p-4" onClick={() => setSelectedItem(null)}>
+          <div className="max-w-4xl max-h-[90vh] relative" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="absolute top-2 right-2 text-light-gray hover:text-accent bg-dark-gray bg-opacity-50 rounded-full w-8 h-8 flex items-center justify-center"
+              onClick={() => setSelectedItem(null)}
+            >
+              ✕
+            </button>
+            <div className="aspect-square bg-black border border-accent">
+              {/* Placeholder for large tattoo image */}
+              <div className="w-full h-full flex items-center justify-center">
+                <span className="text-light-gray">Tattoo Image</span>
               </div>
             </div>
           </div>

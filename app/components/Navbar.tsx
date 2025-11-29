@@ -17,19 +17,67 @@ export default function Navbar() {
         </Link>
 
         {/* Navigation Links */}
-        <div className="flex items-center space-x-6 md:space-x-10 text-sm md:text-base tracking-widest">
+        <div className="flex items-center text-sm md:text-base tracking-widest">
           <Link href="/bio" className="text-foreground hover:text-accent transition-colors">
             BIO
           </Link>
+
+          {/* Dots Icon */}
+          <div className="mx-2 md:mx-3">
+            <svg width="15" height="15" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="20" cy="8" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="32" cy="20" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="20" cy="32" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="8" cy="20" r="3" fill="currentColor" className="text-accent" />
+            </svg>
+          </div>
+
           <Link href="/gallery" className="text-foreground hover:text-accent transition-colors">
             GALLERY
           </Link>
+
+          {/* Dots Icon */}
+          <div className="mx-2 md:mx-3">
+            <svg width="15" height="15" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="20" cy="8" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="32" cy="20" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="20" cy="32" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="8" cy="20" r="3" fill="currentColor" className="text-accent" />
+            </svg>
+          </div>
+
           <Link href="/booking" className="text-foreground hover:text-accent transition-colors">
             BOOKING
           </Link>
+
+          {/* Dots Icon */}
+          <div className="mx-2 md:mx-3">
+            <svg width="15" height="15" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="20" cy="8" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="32" cy="20" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="20" cy="32" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="8" cy="20" r="3" fill="currentColor" className="text-accent" />
+            </svg>
+          </div>
+
           <Link href="/aftercare" className="text-foreground hover:text-accent transition-colors">
             AFTERCARE
           </Link>
+
+          {/* Dots Icon */}
+          <div className="mx-2 md:mx-3">
+            <svg width="15" height="15" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="20" cy="8" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="32" cy="20" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="20" cy="32" r="3" fill="currentColor" className="text-accent" />
+              <circle cx="8" cy="20" r="3" fill="currentColor" className="text-accent" />
+            </svg>
+          </div>
+
           <Link href="/store" className="text-foreground hover:text-accent transition-colors">
             STORE
           </Link>
