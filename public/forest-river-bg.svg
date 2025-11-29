@@ -1,0 +1,27 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1920" height="1080" fill="#1a1a1a"/>
+  
+  <!-- River -->
+  <path d="M0,700 C400,650 800,750 1200,680 C1600,620 1920,700 1920,700 L1920,1080 L0,1080 Z" fill="#2a3a4a"/>
+  
+  <!-- Forest silhouettes - back layer -->
+  <path d="M0,400 L100,380 L200,420 L300,390 L400,410 L500,380 L600,400 L700,370 L800,410 L900,380 L1000,420 L1100,390 L1200,410 L1300,380 L1400,400 L1500,370 L1600,410 L1700,380 L1800,420 L1920,390 L1920,700 L0,700 Z" fill="#1e2a25"/>
+  
+  <!-- Forest silhouettes - middle layer -->
+  <path d="M0,450 L80,430 L160,470 L240,440 L320,460 L400,430 L480,450 L560,420 L640,460 L720,430 L800,470 L880,440 L960,460 L1040,430 L1120,450 L1200,420 L1280,460 L1360,430 L1440,470 L1520,440 L1600,460 L1680,430 L1760,450 L1840,420 L1920,440 L1920,700 L0,700 Z" fill="#263330"/>
+  
+  <!-- Forest silhouettes - front layer -->
+  <path d="M0,500 L60,480 L120,520 L180,490 L240,510 L300,480 L360,500 L420,470 L480,510 L540,480 L600,520 L660,490 L720,510 L780,480 L840,500 L900,470 L960,510 L1020,480 L1080,520 L1140,490 L1200,510 L1260,480 L1320,500 L1380,470 L1440,510 L1500,480 L1560,520 L1620,490 L1680,510 L1740,480 L1800,500 L1860,470 L1920,490 L1920,700 L0,700 Z" fill="#2d3c3a"/>
+  
+  <!-- Subtle fog/mist effect -->
+  <rect x="0" y="500" width="1920" height="200" fill="url(#fog)" opacity="0.2"/>
+  
+  <!-- Definitions -->
+  <defs>
+    <linearGradient id="fog" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>
