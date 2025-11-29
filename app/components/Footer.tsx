@@ -29,7 +29,7 @@ export default function Footer() {
           {/* Social Icons on right */}
           <div className="flex justify-end space-x-4">
             <a 
-              href="https://instagram.com" 
+              href="https://www.instagram.com/tarvokerves"
               target="_blank" 
               rel="noopener noreferrer"
               className="text-accent hover:text-dark-accent transition-colors"
@@ -42,7 +42,7 @@ export default function Footer() {
               </svg>
             </a>
             <a 
-              href="mailto:contact@example.com" 
+              href="mailto:tarvo.kerves@gmail.com"
               className="text-accent hover:text-dark-accent transition-colors"
               aria-label="Email"
             >

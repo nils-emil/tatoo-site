@@ -4,18 +4,21 @@ export default function BioPage() {
   return (
     <div className="container mx-auto px-4 py-16">
       <h1 className="text-3xl md:text-4xl mb-8 text-center">BIO</h1>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {/* Portrait Photo (Optional) */}
         <div className="flex justify-center md:justify-end">
-          <div className="relative w-64 h-80 border-2 border-accent">
-            {/* Placeholder for portrait photo */}
-            <div className="absolute inset-0 bg-dark-gray flex items-center justify-center">
-              <span className="text-light-gray">Portrait Photo</span>
-            </div>
+          <div className="relative w-80 h-96 border-2 border-accent overflow-hidden">
+            <Image 
+              src="/tarvo.jpg" 
+              alt="Portrait of Tattoo Artist" 
+              fill
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
+              priority
+            />
           </div>
         </div>
-        
+
         {/* Bio Text */}
         <div className="border-2 border-accent p-6 bg-dark-gray bg-opacity-50">
           <div className="mb-8">
@@ -26,7 +29,7 @@ export default function BioPage() {
               I believe that each tattoo should tell a story and be as unique as the person wearing it.
             </p>
           </div>
-          
+
           <div className="mb-8">
             <h2 className="text-xl mb-3 text-accent">Tattoo Style</h2>
             <p className="text-light-gray">
@@ -35,7 +38,7 @@ export default function BioPage() {
               creating pieces that look like they've always been a part of you.
             </p>
           </div>
-          
+
           <div className="mb-8">
             <h2 className="text-xl mb-3 text-accent">Experience & Education</h2>
             <p className="text-light-gray">
@@ -44,7 +47,7 @@ export default function BioPage() {
               through ongoing education and artistic exploration.
             </p>
           </div>
-          
+
           <div className="mb-8">
             <h2 className="text-xl mb-3 text-accent">Basel ↔ Tallinn</h2>
             <p className="text-light-gray">
@@ -52,7 +55,7 @@ export default function BioPage() {
               Check my booking page for my current location and availability.
             </p>
           </div>
-          
+
           <div>
             <h2 className="text-xl mb-3 text-accent">Guest Spots & Travel</h2>
             <p className="text-light-gray">

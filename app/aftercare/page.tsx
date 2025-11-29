@@ -6,20 +6,6 @@ export default function AftercarePage() {
       <h1 className="text-3xl md:text-4xl mb-8 text-center">AFTERCARE</h1>
       
       <div className="max-w-3xl mx-auto">
-        {/* Introduction */}
-        <div className="mb-12 text-center">
-          <p className="text-light-gray">
-            Proper aftercare is essential for the healing process and final appearance of your tattoo.
-            Follow these instructions carefully to ensure the best results.
-          </p>
-          <Link 
-            href="/aftercare-guide.pdf" 
-            className="inline-block mt-4 px-6 py-2 border border-accent text-accent hover:bg-accent hover:text-dark-gray transition-colors"
-          >
-            Download Aftercare PDF
-          </Link>
-        </div>
-        
         {/* Step-by-step instructions */}
         <div className="mb-12">
           <h2 className="text-2xl text-accent mb-6">Step-by-Step Aftercare</h2>
@@ -176,49 +162,6 @@ export default function AftercarePage() {
                 <span>Heavy exercise or activities that cause excessive sweating for 3-5 days</span>
               </li>
             </ul>
-          </div>
-        </div>
-        
-        {/* Recommended Products */}
-        <div className="mb-12">
-          <h2 className="text-2xl text-accent mb-6">Recommended Products</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="border border-accent p-6 bg-dark-gray bg-opacity-50 text-center">
-              <h3 className="text-xl text-accent mb-3">Cleansing</h3>
-              <p className="text-light-gray mb-4">
-                Use a gentle, fragrance-free antibacterial soap for washing your tattoo.
-              </p>
-              <ul className="text-light-gray text-sm space-y-2">
-                <li>Dr. Bronner's Unscented Baby Soap</li>
-                <li>Neutrogena Fragrance-Free Soap</li>
-                <li>H2Ocean Blue Green Foam Soap</li>
-              </ul>
-            </div>
-            
-            <div className="border border-accent p-6 bg-dark-gray bg-opacity-50 text-center">
-              <h3 className="text-xl text-accent mb-3">Initial Healing</h3>
-              <p className="text-light-gray mb-4">
-                For the first few days, use these ointments sparingly.
-              </p>
-              <ul className="text-light-gray text-sm space-y-2">
-                <li>Hustle Butter</li>
-                <li>After Inked Tattoo Moisturizer</li>
-                <li>Aquaphor Healing Ointment</li>
-              </ul>
-            </div>
-            
-            <div className="border border-accent p-6 bg-dark-gray bg-opacity-50 text-center">
-              <h3 className="text-xl text-accent mb-3">Long-term Care</h3>
-              <p className="text-light-gray mb-4">
-                After the initial healing, switch to these moisturizers.
-              </p>
-              <ul className="text-light-gray text-sm space-y-2">
-                <li>Lubriderm Fragrance-Free Lotion</li>
-                <li>Cetaphil Moisturizing Lotion</li>
-                <li>Tattoo Goo Lotion</li>
-              </ul>
-            </div>
           </div>
         </div>
         
