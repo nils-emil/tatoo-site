@@ -11,7 +11,7 @@ const specialElite = Special_Elite({
 });
 
 export const metadata: Metadata = {
-  title: "Tattoo Artist | Basel & Tallinn",
+  title: "Tarvo Kerves | Basel & Tallinn",
   description: "Professional tattoo artist based in Basel and Tallinn. Specializing in dark, moody, nature-inspired designs.",
 };
 

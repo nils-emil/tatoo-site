@@ -6,16 +6,13 @@ import { useSearchParams } from 'next/navigation';
 export default function BookingPage() {
   const searchParams = useSearchParams();
   const inspirationId = searchParams.get('inspiration');
-  
+
   const [bookingType, setBookingType] = useState<'calendar' | 'form'>('form');
   const [location, setLocation] = useState<'Basel' | 'Tallinn' | ''>('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    description: '',
-    placement: '',
-    size: '',
-    preferredStudio: '',
+    message: '',
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -29,19 +26,28 @@ export default function BookingPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // In a real application, this would send the form data to a server
-    alert('Booking request submitted! We will contact you soon.');
+    if (bookingType === 'calendar') {
+      alert('Booking request submitted! We will contact you soon.');
+    } else {
+      alert('Message sent! We will get back to you shortly.');
+    }
   };
 
   return (
     <div className="container mx-auto px-4 py-16">
       <h1 className="text-3xl md:text-4xl mb-8 text-center">BOOKING</h1>
-      
+
       {inspirationId && (
         <div className="mb-8 p-4 border border-accent bg-dark-gray bg-opacity-50 text-center">
           <p className="text-light-gray">You're booking a tattoo inspired by gallery item #{inspirationId}</p>
         </div>
       )}
-      
+
+      {/* Instagram Booking Option */}
+      <div className="max-w-2xl mx-auto mb-8 text-center">
+        <p className="text-light-gray">You can also always contact me on <a href="https://www.instagram.com/tarvokerves/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Instagram</a>.</p>
+      </div>
+
       {/* Booking Type Selection */}
       <div className="flex justify-center mb-8">
         <div className="inline-flex rounded-md shadow-sm" role="group">
@@ -50,18 +56,18 @@ export default function BookingPage() {
             className={`px-6 py-3 text-sm font-medium border border-accent rounded-l-lg ${bookingType === 'calendar' ? 'bg-accent text-dark-gray' : 'bg-transparent text-accent hover:bg-accent hover:bg-opacity-20'}`}
             onClick={() => setBookingType('calendar')}
           >
-            Calendar Booking
+            Booking
           </button>
           <button
             type="button"
             className={`px-6 py-3 text-sm font-medium border border-accent rounded-r-lg ${bookingType === 'form' ? 'bg-accent text-dark-gray' : 'bg-transparent text-accent hover:bg-accent hover:bg-opacity-20'}`}
             onClick={() => setBookingType('form')}
           >
-            Contact Form
+            General Contact
           </button>
         </div>
       </div>
-      
+
       {/* Calendar Booking */}
       {bookingType === 'calendar' && (
         <div className="max-w-2xl mx-auto">
@@ -82,7 +88,7 @@ export default function BookingPage() {
               </button>
             </div>
           </div>
-          
+
           {location && (
             <>
               <div className="mb-8">
@@ -92,7 +98,7 @@ export default function BookingPage() {
                   <p className="text-center text-light-gray mt-2">For this prototype, please use the contact form.</p>
                 </div>
               </div>
-              
+
               <div className="mb-8">
                 <h2 className="text-xl mb-4 text-center">Contact Details</h2>
                 <form className="space-y-4">
@@ -105,7 +111,7 @@ export default function BookingPage() {
                       required
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="cal-email" className="block mb-2 text-accent">Email</label>
                     <input
@@ -115,7 +121,7 @@ export default function BookingPage() {
                       required
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="cal-phone" className="block mb-2 text-accent">Phone</label>
                     <input
@@ -124,7 +130,7 @@ export default function BookingPage() {
                       className="w-full p-3 bg-dark-gray border-2 border-accent focus:border-accent focus:ring-0 focus:outline-none"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="cal-description" className="block mb-2 text-accent">Tattoo Description</label>
                     <textarea
@@ -134,7 +140,7 @@ export default function BookingPage() {
                       required
                     ></textarea>
                   </div>
-                  
+
                   <div>
                     <label className="block mb-2 text-accent">Reference Images</label>
                     <div className="border-2 border-accent border-dashed p-8 text-center cursor-pointer hover:bg-accent hover:bg-opacity-10 transition-colors">
@@ -142,7 +148,7 @@ export default function BookingPage() {
                       <p className="text-xs text-light-gray mt-2">(Max 5 images, 5MB each)</p>
                     </div>
                   </div>
-                  
+
                   <div className="pt-4">
                     <button
                       type="submit"
@@ -157,8 +163,8 @@ export default function BookingPage() {
           )}
         </div>
       )}
-      
-      {/* Contact Form */}
+
+      {/* General Contact Form */}
       {bookingType === 'form' && (
         <div className="max-w-2xl mx-auto">
           <form className="space-y-6" onSubmit={handleSubmit}>
@@ -174,7 +180,7 @@ export default function BookingPage() {
                 required
               />
             </div>
-            
+
             <div>
               <label htmlFor="email" className="block mb-2 text-accent">Email</label>
               <input
@@ -187,77 +193,26 @@ export default function BookingPage() {
                 required
               />
             </div>
-            
+
             <div>
-              <label htmlFor="description" className="block mb-2 text-accent">Tattoo Idea Description</label>
+              <label htmlFor="message" className="block mb-2 text-accent">Message</label>
               <textarea
-                id="description"
-                name="description"
-                value={formData.description}
+                id="message"
+                name="message"
+                value={formData.message}
                 onChange={handleInputChange}
                 rows={5}
                 className="w-full p-3 bg-dark-gray border-2 border-accent focus:border-accent focus:ring-0 focus:outline-none"
                 required
               ></textarea>
             </div>
-            
-            <div>
-              <label htmlFor="placement" className="block mb-2 text-accent">Body Placement</label>
-              <input
-                type="text"
-                id="placement"
-                name="placement"
-                value={formData.placement}
-                onChange={handleInputChange}
-                className="w-full p-3 bg-dark-gray border-2 border-accent focus:border-accent focus:ring-0 focus:outline-none"
-                required
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="size" className="block mb-2 text-accent">Size (approximate in cm)</label>
-              <input
-                type="text"
-                id="size"
-                name="size"
-                value={formData.size}
-                onChange={handleInputChange}
-                className="w-full p-3 bg-dark-gray border-2 border-accent focus:border-accent focus:ring-0 focus:outline-none"
-                required
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="preferredStudio" className="block mb-2 text-accent">Preferred Studio</label>
-              <select
-                id="preferredStudio"
-                name="preferredStudio"
-                value={formData.preferredStudio}
-                onChange={handleInputChange}
-                className="w-full p-3 bg-dark-gray border-2 border-accent focus:border-accent focus:ring-0 focus:outline-none"
-                required
-              >
-                <option value="">Select a studio</option>
-                <option value="Basel">Basel</option>
-                <option value="Tallinn">Tallinn</option>
-                <option value="No Preference">No Preference</option>
-              </select>
-            </div>
-            
-            <div>
-              <label className="block mb-2 text-accent">Inspired Images</label>
-              <div className="border-2 border-accent border-dashed p-8 text-center cursor-pointer hover:bg-accent hover:bg-opacity-10 transition-colors">
-                <p className="text-light-gray">Click to upload reference images</p>
-                <p className="text-xs text-light-gray mt-2">(Max 5 images, 5MB each)</p>
-              </div>
-            </div>
-            
+
             <div className="pt-4">
               <button
                 type="submit"
                 className="w-full py-4 px-6 bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-dark-gray transition-colors shadow-[0_0_10px_rgba(230,161,68,0.2)] hover:shadow-[0_0_15px_rgba(230,161,68,0.5)]"
               >
-                Submit Booking Request
+                Send Message
               </button>
             </div>
           </form>

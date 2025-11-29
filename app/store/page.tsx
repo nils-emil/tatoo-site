@@ -180,11 +180,6 @@ export default function StorePage() {
                     Purchase Gift Card
                   </button>
                 </div>
-
-                <div className="flex justify-center space-x-4 pt-4">
-                  <div className="text-light-gray text-sm">Payment Method:</div>
-                  <div className="text-accent">Stripe</div>
-                </div>
               </form>
             </div>
           </div>
