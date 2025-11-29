@@ -38,7 +38,7 @@ export default function BookingPage() {
       <h1 className="text-3xl md:text-4xl mb-8 text-center">BOOKING</h1>
 
       {inspirationId && (
-        <div className="mb-8 p-4 border border-accent bg-dark-gray bg-opacity-50 text-center">
+        <div className="mb-8 p-4 border border-accent  bg-opacity-50 text-center">
           <p className="text-light-gray">You're booking a tattoo inspired by gallery item #{inspirationId}</p>
         </div>
       )}
@@ -152,7 +152,7 @@ export default function BookingPage() {
                   <div className="pt-4">
                     <button
                       type="submit"
-                      className="w-full py-3 px-6 bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-dark-gray transition-colors shadow-[0_0_10px_rgba(230,161,68,0.2)] hover:shadow-[0_0_15px_rgba(230,161,68,0.5)]"
+                      className="w-full py-3 px-6 bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-foreground transition-colors shadow-[0_0_10px_rgba(230,161,68,0.2)] hover:shadow-[0_0_15px_rgba(230,161,68,0.5)]"
                     >
                       Book Appointment
                     </button>
