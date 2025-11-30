@@ -5,12 +5,39 @@ import Image from 'next/image';
 
 type GiftCardAmount = 50 | 100 | 200 | 'custom';
 
+// Define the type for store images
+type StoreImage = {
+  id: number;
+  src: string;
+  alt: string;
+};
+
+// Store images data
+const storeImages: StoreImage[] = [
+  {
+    id: 1,
+    src: "/store/store1.jpg",
+    alt: "Gift Card Design 1"
+  },
+  {
+    id: 2,
+    src: "/store/store2.jpg",
+    alt: "Gift Card Design 2"
+  },
+  {
+    id: 3,
+    src: "/store/store3.jpg",
+    alt: "Gift Card Design 3"
+  }
+];
+
 export default function StorePage() {
   const [selectedAmount, setSelectedAmount] = useState<GiftCardAmount>(100);
   const [customAmount, setCustomAmount] = useState<number>(150);
   const [email, setEmail] = useState<string>('');
   const [recipientName, setRecipientName] = useState<string>('');
   const [message, setMessage] = useState<string>('');
+  const [selectedImage, setSelectedImage] = useState<StoreImage | null>(null);
   // Removed printable PDF option as per requirements
 
   const handleCustomAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,33 +75,23 @@ export default function StorePage() {
 
           {/* Gift Card Images */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="border border-accent overflow-hidden">
-              <Image
-                src="/store/store1.jpg"
-                alt="Gift Card Design 1"
-                width={400}
-                height={300}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <div className="border border-accent overflow-hidden">
-              <Image
-                src="/store/store2.jpg"
-                alt="Gift Card Design 2"
-                width={400}
-                height={300}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <div className="border border-accent overflow-hidden">
-              <Image
-                src="/store/store3.jpg"
-                alt="Gift Card Design 3"
-                width={400}
-                height={300}
-                className="w-full h-auto object-cover"
-              />
-            </div>
+            {storeImages.map((image) => (
+              <div 
+                key={image.id} 
+                className="border border-accent overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(230,161,68,0.5)]"
+                onClick={() => setSelectedImage(image)}
+              >
+                <div className="relative w-full h-full">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={400}
+                    height={300}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="mb-12">
@@ -99,6 +116,36 @@ export default function StorePage() {
           </div>
         </div>
       </div>
+
+      {/* Lightbox */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-100 z-50 flex items-center justify-center p-4" 
+          onClick={() => setSelectedImage(null)}
+        >
+          <div 
+            className="max-w-[90vw] relative" 
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+          >
+            <button 
+              className="absolute top-2 right-2 text-light-gray hover:text-accent bg-dark-gray bg-opacity-50 rounded-full w-8 h-8 flex items-center justify-center"
+              onClick={() => setSelectedImage(null)}
+            >
+              ✕
+            </button>
+            <div className="bg-black border border-accent relative flex items-center justify-center overflow-hidden h-[90vh]">
+              <img 
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className="max-w-full h-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
