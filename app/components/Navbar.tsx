@@ -34,6 +34,10 @@ export default function Navbar() {
             GALLERY
           </Link>
           {dots}
+          <Link href="/rss" className="text-foreground hover:text-accent transition-colors flex items-center pt-1">
+            UPDATES
+          </Link>
+          {dots}
           <Link href="/booking" className="text-foreground hover:text-accent transition-colors flex items-center pt-1">
             BOOKING
           </Link>

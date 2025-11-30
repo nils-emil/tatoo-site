@@ -18,15 +18,10 @@ export default function Home() {
       {/* Hero Section */}
       <div 
         className="flex-1 flex items-center justify-center"
-        style={{
-          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/forest-river-bg.svg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
       >
         <div className="flex items-center justify-center w-full">
           {/* Basel Text */}
-          <div className="text-2xl md:text-4xl tracking-widest mr-8 md:mr-16">
+          <div className="text-2xl md:text-4xl tracking-widest mr-8 md:mr-16 color-tarvo">
             BASEL
           </div>
 
@@ -45,7 +40,7 @@ export default function Home() {
           </div>
 
           {/* Tallinn Text */}
-          <div className="text-2xl md:text-4xl tracking-widest ml-8 md:ml-16">
+          <div className="text-2xl md:text-4xl tracking-widest ml-8 md:ml-16 color-tarvo">
             TALLINN
           </div>
         </div>

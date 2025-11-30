@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import {useState} from 'react';
+import {useSearchParams} from 'next/navigation';
 
 export default function BookingPage() {
   const searchParams = useSearchParams();
@@ -13,10 +13,11 @@ export default function BookingPage() {
     name: '',
     email: '',
     message: '',
+    pinterestRefs: '',
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
+    const {name, value} = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -26,11 +27,7 @@ export default function BookingPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // In a real application, this would send the form data to a server
-    if (bookingType === 'calendar') {
-      alert('Booking request submitted! We will contact you soon.');
-    } else {
-      alert('Message sent! We will get back to you shortly.');
-    }
+    alert('Booking request submitted! We will contact you soon.');
   };
 
   return (
@@ -45,12 +42,17 @@ export default function BookingPage() {
 
       {/* Instagram Booking Option */}
       <div className="max-w-2xl mx-auto mb-8 text-center">
-        <p className="text-light-gray">You can also always contact me on <a href="https://www.instagram.com/tarvokerves/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Instagram</a>.</p>
+        <p
+          className="text-light-gray">You can also always contact me on <a href="https://www.instagram.com/tarvokerves/"
+                                                                           target="_blank" rel="noopener noreferrer"
+                                                                           className="text-accent hover:underline">Instagram</a>
+        </p>
       </div>
 
       {/* Booking Type Selection */}
       <div className="flex justify-center mb-8">
         <div className="inline-flex rounded-md shadow-sm" role="group">
+
           <button
             type="button"
             className={`px-6 py-3 text-sm font-medium border border-accent rounded-l-lg ${bookingType === 'calendar' ? 'bg-accent text-dark-gray' : 'bg-transparent text-accent hover:bg-accent hover:bg-opacity-20'}`}
@@ -92,21 +94,16 @@ export default function BookingPage() {
           {location && (
             <>
               <div className="mb-8">
-                <h2 className="text-xl mb-4 text-center">Available Dates in {location}</h2>
-                <div className="border-2 border-accent p-6 bg-dark-gray bg-opacity-50">
-                  <p className="text-center text-light-gray">Calendar functionality would be implemented here.</p>
-                  <p className="text-center text-light-gray mt-2">For this prototype, please use the contact form.</p>
-                </div>
-              </div>
-
-              <div className="mb-8">
                 <h2 className="text-xl mb-4 text-center">Contact Details</h2>
-                <form className="space-y-4">
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   <div>
                     <label htmlFor="cal-name" className="block mb-2 text-accent">Name</label>
                     <input
                       type="text"
                       id="cal-name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
                       className="w-full p-3 bg-dark-gray border-2 border-accent focus:border-accent focus:ring-0 focus:outline-none"
                       required
                     />
@@ -117,6 +114,9 @@ export default function BookingPage() {
                     <input
                       type="email"
                       id="cal-email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       className="w-full p-3 bg-dark-gray border-2 border-accent focus:border-accent focus:ring-0 focus:outline-none"
                       required
                     />
@@ -135,6 +135,9 @@ export default function BookingPage() {
                     <label htmlFor="cal-description" className="block mb-2 text-accent">Tattoo Description</label>
                     <textarea
                       id="cal-description"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       rows={4}
                       className="w-full p-3 bg-dark-gray border-2 border-accent focus:border-accent focus:ring-0 focus:outline-none"
                       required
@@ -142,11 +145,16 @@ export default function BookingPage() {
                   </div>
 
                   <div>
-                    <label className="block mb-2 text-accent">Reference Images</label>
-                    <div className="border-2 border-accent border-dashed p-8 text-center cursor-pointer hover:bg-accent hover:bg-opacity-10 transition-colors">
-                      <p className="text-light-gray">Click to upload images</p>
-                      <p className="text-xs text-light-gray mt-2">(Max 5 images, 5MB each)</p>
-                    </div>
+                    <label htmlFor="cal-pinterest" className="block mb-2 text-accent">Pinterest References</label>
+                    <textarea
+                      id="cal-pinterest"
+                      name="pinterestRefs"
+                      value={formData.pinterestRefs}
+                      onChange={handleInputChange}
+                      rows={4}
+                      placeholder="Paste your Pinterest links or describe your reference images here..."
+                      className="w-full p-3 bg-dark-gray border-2 border-accent focus:border-accent focus:ring-0 focus:outline-none"
+                    ></textarea>
                   </div>
 
                   <div className="pt-4">
@@ -167,15 +175,14 @@ export default function BookingPage() {
       {/* General Contact Form */}
       {bookingType === 'form' && (
         <div className="max-w-2xl mx-auto">
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
+            <input type="hidden" name="access_key" value="4edfb1a2-3a27-4f92-8454-314f3569efd2"/>
             <div>
               <label htmlFor="name" className="block mb-2 text-accent">Name</label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                value={formData.name}
-                onChange={handleInputChange}
                 className="w-full p-3 bg-dark-gray border-2 border-accent focus:border-accent focus:ring-0 focus:outline-none"
                 required
               />
@@ -187,8 +194,6 @@ export default function BookingPage() {
                 type="email"
                 id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleInputChange}
                 className="w-full p-3 bg-dark-gray border-2 border-accent focus:border-accent focus:ring-0 focus:outline-none"
                 required
               />
@@ -199,8 +204,6 @@ export default function BookingPage() {
               <textarea
                 id="message"
                 name="message"
-                value={formData.message}
-                onChange={handleInputChange}
                 rows={5}
                 className="w-full p-3 bg-dark-gray border-2 border-accent focus:border-accent focus:ring-0 focus:outline-none"
                 required
@@ -210,9 +213,9 @@ export default function BookingPage() {
             <div className="pt-4">
               <button
                 type="submit"
-                className="w-full py-4 px-6 bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-dark-gray transition-colors shadow-[0_0_10px_rgba(230,161,68,0.2)] hover:shadow-[0_0_15px_rgba(230,161,68,0.5)]"
+                className="w-full py-4 px-6 bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-foreground transition-colors shadow-[0_0_10px_rgba(230,161,68,0.2)] hover:shadow-[0_0_15px_rgba(230,161,68,0.5)]"
               >
-                Send Message
+                Submit
               </button>
             </div>
           </form>
