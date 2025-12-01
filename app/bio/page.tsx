@@ -42,7 +42,7 @@ export default function BioPage() {
           <div className="mb-8">
             <h2 className="text-xl mb-3 text-accent">Experience & Education</h2>
             <p className="text-light-gray">
-              With over 8 years of professional experience, I've developed a unique approach to tattooing.
+              With over 20 years of professional experience, I've developed a unique approach to tattooing.
               I've trained under master artists in both Europe and Asia, and continue to evolve my craft
               through ongoing education and artistic exploration.
             </p>
@@ -52,7 +52,6 @@ export default function BioPage() {
             <h2 className="text-xl mb-3 text-accent">Basel ↔ Tallinn</h2>
             <p className="text-light-gray">
               I split my time between my studios in Basel, Switzerland and Tallinn, Estonia.
-              Check my booking page for my current location and availability.
             </p>
           </div>
 

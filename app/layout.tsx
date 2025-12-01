@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { Special_Elite } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-const specialElite = Special_Elite({
-  weight: "400",
+const equivalentLight = localFont({
+  src: "../public/equivalent-light-1764509792-0/Equivalent-Light-SVG.otf",
   variable: "--font-typewriter",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -23,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${specialElite.variable} antialiased`}
+        className={`${equivalentLight.variable} antialiased`}
       >
         <Navbar />
         <main className="min-h-screen pt-16">

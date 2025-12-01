@@ -21,7 +21,7 @@ export default function Home() {
       >
         <div className="flex items-center justify-center w-full">
           {/* Basel Text */}
-          <div className="text-2xl md:text-4xl tracking-widest mr-8 md:mr-16 color-tarvo">
+          <div className="text-2xl md:text-4xl tracking-[.4em] mr-8 md:mr-16 color-tarvo">
             BASEL
           </div>
 
@@ -29,7 +29,7 @@ export default function Home() {
           <div className="relative w-32 h-32 md:w-48 md:h-48">
             <div className="absolute inset-0 flex items-center justify-center">
               <Image 
-                src="/hexagon-bird-logo.svg" 
+                src="/bird.png"
                 alt="Tattoo Artist Logo" 
                 width={200} 
                 height={200}
@@ -40,7 +40,7 @@ export default function Home() {
           </div>
 
           {/* Tallinn Text */}
-          <div className="text-2xl md:text-4xl tracking-widest ml-8 md:ml-16 color-tarvo">
+          <div className="text-2xl md:text-4xl tracking-[.4em] ml-8 md:ml-16 color-tarvo">
             TALLINN
           </div>
         </div>

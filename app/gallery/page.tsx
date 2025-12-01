@@ -119,7 +119,7 @@ export default function GalleryPage() {
             >
               ✕
             </button>
-            <div className="bg-black border border-accent relative flex items-center justify-center overflow-hidden h-[90vh]">
+            <div className="bg-black border-2 border-accent relative flex items-center justify-center overflow-hidden h-[90vh]">
               {selectedItem && (
                 <img 
                   src={selectedItem.imageSrc}
