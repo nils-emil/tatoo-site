@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,8 +25,8 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <Image
-            src="/bird.png"
+          <img
+            src="http://95.216.209.117/bird.png"
             alt="Tattoo Artist Logo"
             width={40}
             height={40}
@@ -87,14 +86,7 @@ export default function Navbar() {
           >
             GALLERY
           </Link>
-          <Link 
-            href="/rss" 
-            className="text-foreground hover:text-accent transition-colors py-2 text-center"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            UPDATES
-          </Link>
-          <Link 
+          <Link
             href="/booking" 
             className="text-foreground hover:text-accent transition-colors py-2 text-center"
             onClick={() => setIsMenuOpen(false)}

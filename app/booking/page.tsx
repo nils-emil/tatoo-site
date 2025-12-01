@@ -1,11 +1,8 @@
 'use client';
 
 import {useState} from 'react';
-import {useSearchParams} from 'next/navigation';
 
 export default function BookingPage() {
-  const searchParams = useSearchParams();
-  const inspirationId = searchParams.get('inspiration');
 
   const [bookingType, setBookingType] = useState<'calendar' | 'form'>('form');
   const [formData, setFormData] = useState({
@@ -37,12 +34,6 @@ export default function BookingPage() {
     <div className="container mx-auto px-4 py-16">
       <h1 className="text-3xl md:text-4xl mb-8 text-center">BOOKING</h1>
 
-      {inspirationId && (
-        <div className="mb-8 p-4 border border-accent  bg-opacity-50 text-center">
-          <p className="text-light-gray">You're booking a tattoo inspired by gallery item #{inspirationId}</p>
-        </div>
-      )}
-
       {/* Instagram Booking Option */}
       <div className="max-w-2xl mx-auto mb-8 text-center">
         <p
@@ -58,14 +49,14 @@ export default function BookingPage() {
 
           <button
             type="button"
-            className={`px-6 py-3 text-sm font-medium border border-accent rounded-l-lg ${bookingType === 'calendar' ? 'bg-accent text-dark-gray' : 'bg-transparent text-accent hover:bg-accent hover:bg-opacity-20'}`}
+            className={`px-6 py-3 text-sm font-medium border-2 border-accent rounded-l-lg ${bookingType === 'calendar' ? 'bg-accent text-dark-gray' : 'bg-transparent text-accent hover:bg-accent hover:bg-opacity-20'}`}
             onClick={() => setBookingType('calendar')}
           >
             Booking
           </button>
           <button
             type="button"
-            className={`px-6 py-3 text-sm font-medium border border-accent rounded-r-lg ${bookingType === 'form' ? 'bg-accent text-dark-gray' : 'bg-transparent text-accent hover:bg-accent hover:bg-opacity-20'}`}
+            className={`px-6 py-3 text-sm font-medium border-2 border-accent rounded-r-lg ${bookingType === 'form' ? 'bg-accent text-dark-gray' : 'bg-transparent text-accent hover:bg-accent hover:bg-opacity-20'}`}
             onClick={() => setBookingType('form')}
           >
             General Contact
@@ -197,7 +188,7 @@ export default function BookingPage() {
       {/* General Contact Form */}
       {bookingType === 'form' && (
         <div className="max-w-2xl mx-auto">
-          <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
+          <form action="https://api.web3forms.com/submit" method="POST" className="space-y-4">
             <input type="hidden" name="access_key" value="4edfb1a2-3a27-4f92-8454-314f3569efd2"/>
             <div>
               <label htmlFor="name" className="block mb-2 text-accent">Name</label>

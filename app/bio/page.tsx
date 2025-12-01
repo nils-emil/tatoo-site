@@ -1,4 +1,3 @@
-import Image from 'next/image';
 
 export default function BioPage() {
   return (
@@ -9,12 +8,10 @@ export default function BioPage() {
         {/* Portrait Photo (Optional) */}
         <div className="flex justify-center md:justify-end">
           <div className="relative w-80 h-96 border-2 border-accent overflow-hidden">
-            <Image 
-              src="/tarvo.jpg" 
+            <img
+              src="http://95.216.209.117/tarvo.jpg"
               alt="Portrait of Tattoo Artist" 
-              fill
               style={{ objectFit: 'cover', objectPosition: 'center' }}
-              priority
             />
           </div>
         </div>

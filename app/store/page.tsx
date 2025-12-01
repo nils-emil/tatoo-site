@@ -1,7 +1,5 @@
 'use client';
 
-import {useState} from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 // Define the type for store items
@@ -20,7 +18,7 @@ const storeItems: StoreItem[] = [
     id: 1,
     name: "Gift Card",
     description: "Give the gift of art with a tattoo gift card - perfect for someone special who's been thinking about getting inked.",
-    imageSrc: "/store/store1.jpg",
+    imageSrc: "http://95.216.209.117/store/store1.jpg",
     price: "",
     url: "/store/giftcard"
   }
@@ -49,13 +47,12 @@ export default function StorePage() {
             {storeItems.map((item) => (
               <div
                 key={item.id}
-                className="border border-accent overflow-hidden"
+                className="border-2 border-accent overflow-hidden"
               >
                 <div className="relative w-full aspect-square">
-                  <Image
+                  <img
                     src={item.imageSrc}
                     alt={item.name}
-                    fill
                     className="object-cover"
                   />
                 </div>

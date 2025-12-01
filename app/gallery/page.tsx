@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 
 // Define the types for our gallery items
 type GalleryItem = {
@@ -14,51 +12,51 @@ type GalleryItem = {
 const galleryItems: GalleryItem[] = [
   {
     id: 1,
-    imageSrc: "/gallery/1.jpg"
+    imageSrc: "http://95.216.209.117/gallery/1.jpg"
   },
   {
     id: 2,
-    imageSrc: "/gallery/2.jpg"
+    imageSrc: "http://95.216.209.117/gallery/2.jpg"
   },
   {
     id: 3,
-    imageSrc: "/gallery/3.jpg"
+    imageSrc: "http://95.216.209.117/gallery/3.jpg"
   },
   {
     id: 4,
-    imageSrc: "/gallery/4.jpg"
+    imageSrc: "http://95.216.209.117/gallery/4.jpg"
   },
   {
     id: 5,
-    imageSrc: "/gallery/5.jpg"
+    imageSrc: "http://95.216.209.117/gallery/5.jpg"
   },
   {
     id: 6,
-    imageSrc: "/gallery/6.jpg"
+    imageSrc: "http://95.216.209.117/gallery/6.jpg"
   },
   {
     id: 7,
-    imageSrc: "/gallery/7.jpg"
+    imageSrc: "http://95.216.209.117/gallery/7.jpg"
   },
   {
     id: 8,
-    imageSrc: "/gallery/8.jpg"
+    imageSrc: "http://95.216.209.117/gallery/8.jpg"
   },
   {
     id: 9,
-    imageSrc: "/gallery/9.jpg"
+    imageSrc: "http://95.216.209.117/gallery/9.jpg"
   },
   {
     id: 10,
-    imageSrc: "/gallery/10.jpg"
+    imageSrc: "http://95.216.209.117/gallery/10.jpg"
   },
   {
     id: 11,
-    imageSrc: "/gallery/11.jpg"
+    imageSrc: "http://95.216.209.117/gallery/11.jpg"
   },
   {
     id: 12,
-    imageSrc: "/gallery/12.jpg"
+    imageSrc: "http://95.216.209.117/gallery/12.jpg"
   }
 ];
 
@@ -82,10 +80,9 @@ export default function GalleryPage() {
             }}
           >
             <div className="relative w-full h-full">
-              <Image 
+              <img
                 src={item.imageSrc}
                 alt="Tattoo Gallery Image"
-                fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
                 className="object-cover"
               />

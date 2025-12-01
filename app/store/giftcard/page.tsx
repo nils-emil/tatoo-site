@@ -1,9 +1,6 @@
 'use client';
 
 import {useState} from 'react';
-import Image from 'next/image';
-
-type GiftCardAmount = 50 | 100 | 200 | 'custom';
 
 // Define the type for store images
 type StoreImage = {
@@ -18,21 +15,21 @@ type StoreImage = {
 const storeImages: StoreImage[] = [
   {
     id: 1,
-    src: "/store/store1.jpg",
+    src: "http://95.216.209.117/store/store1.jpg",
     alt: "Gift Card Design 1",
     type: 'image',
     aspectRatio: 'square'
   },
   {
     id: 3,
-    src: "/store/store.mov",
+    src: "http://95.216.209.117/store/store.mov",
     alt: "Video of Gift Card",
     type: 'video',
     aspectRatio: 'video'
   },
   {
     id: 2,
-    src: "/store/store2.jpg",
+    src: "http://95.216.209.117/store/store2.jpg",
     alt: "Gift Card Design 2",
     type: 'image',
     aspectRatio: 'square'
@@ -67,7 +64,7 @@ export default function StorePage() {
             {storeImages.map((image) => (
               <div
                 key={image.id}
-                className={`border border-accent overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(230,161,68,0.5)] ${
+                className={`border-2 border-accent overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(230,161,68,0.5)] ${
                   image.aspectRatio === 'video' ? 'md:col-span-1' : ''
                 }`}
                 onClick={() => setSelectedImage(image)}
@@ -80,10 +77,9 @@ export default function StorePage() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <Image
+                    <img
                       src={image.src}
                       alt={image.alt}
-                      fill
                       className="object-cover"
                     />
                   )}
@@ -94,7 +90,7 @@ export default function StorePage() {
 
           <div className="mb-12">
             {/* Payment Methods Section */}
-            <div className="border border-accent bg-dark-gray bg-opacity-20 p-6 rounded-sm font-bold">
+            <div className="border-2 border-accent bg-dark-gray bg-opacity-20 p-6 rounded-sm font-bold">
               <h2 className="text-2xl text-accent mb-4 text-center">Payment Methods</h2>
               <p className="text-light-gray text-center mb-6">
                 Choose your preferred payment method to complete your purchase
@@ -105,7 +101,7 @@ export default function StorePage() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {/* Wise Payment Option */}
                   <div
-                    className="border border-accent p-4 hover:bg-accent hover:bg-opacity-10 transition-all duration-300 rounded-sm">
+                    className="border-2 border-accent p-4 hover:bg-accent hover:bg-opacity-10 transition-all duration-300 rounded-sm">
                     <button
                       type="submit"
                       className="w-full flex flex-col items-center text-center"
@@ -122,7 +118,7 @@ export default function StorePage() {
 
                   {/* Venmo Payment Option */}
                   <div
-                    className="border border-accent p-4 hover:bg-accent hover:bg-opacity-10 transition-all duration-300 rounded-sm">
+                    className="border-2 border-accent p-4 hover:bg-accent hover:bg-opacity-10 transition-all duration-300 rounded-sm">
                     <button
                       type="submit"
                       className="w-full flex flex-col items-center text-center"
@@ -139,7 +135,7 @@ export default function StorePage() {
 
                   {/* Twint Payment Option */}
                   <div
-                    className="border border-accent p-4 hover:bg-accent hover:bg-opacity-10 transition-all duration-300 rounded-sm">
+                    className="border-2 border-accent p-4 hover:bg-accent hover:bg-opacity-10 transition-all duration-300 rounded-sm">
                     <button
                       type="submit"
                       className="w-full flex flex-col items-center text-center"
@@ -180,7 +176,7 @@ export default function StorePage() {
               ✕
             </button>
             <div
-              className="bg-black border border-accent relative flex items-center justify-center overflow-hidden">
+              className="bg-black border-2 border-accent relative flex items-center justify-center overflow-hidden">
               {selectedImage.type === 'video' ? (
                 <video
                   src={selectedImage.src}

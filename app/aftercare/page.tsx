@@ -7,7 +7,7 @@ export default function AftercarePage() {
 
       <div className="max-w-3xl mx-auto">
         {/* Introduction */}
-        <div className="mb-8 p-6 border border-accent bg-dark-gray bg-opacity-50">
+        <div className="mb-8 p-6 border-2 border-accent bg-dark-gray bg-opacity-50">
           <p className="text-light-gray">
             It's important to remember everyone heals differently. Don't hesitate to reach out to your artist with any questions you may have. If your artist gives you instructions different from the instructions below, follow your artist's instructions.
           </p>
@@ -205,7 +205,7 @@ export default function AftercarePage() {
         </div>
 
         {/* Removing the Second Skin Bandage */}
-        <div className="mb-12 p-6 border border-accent bg-dark-gray bg-opacity-50">
+        <div className="mb-12 p-6 border-2 border-accent bg-dark-gray bg-opacity-50">
           <h2 className="text-2xl text-accent mb-6">Removing the Second Skin Bandage</h2>
           <p className="text-light-gray mb-4">
             Sun, water, and over-moisturizing are the main causes of bad tattoo heals.
@@ -223,7 +223,7 @@ export default function AftercarePage() {
           </p>
           <Link 
             href="/booking" 
-            className="inline-block px-6 py-2 border border-accent text-accent hover:bg-accent hover:text-foreground transition-colors"
+            className="inline-block px-6 py-2 border-2 border-accent text-accent hover:bg-accent hover:text-foreground transition-colors"
           >
             Contact Me
           </Link>

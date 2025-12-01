@@ -65,7 +65,7 @@ export default function RSSPage() {
           <p className="text-center text-light-gray">No updates available at the moment.</p>
         ) : (
           rssItems.map((item) => (
-            <div key={item.id} className="border border-accent p-6 bg-dark-gray bg-opacity-50">
+            <div key={item.id} className="border-2 border-accent p-6 bg-dark-gray bg-opacity-50">
               <div className="flex justify-between items-start mb-2">
                 <h3 className="text-xl text-accent">{item.title}</h3>
                 <span className="text-sm text-light-gray">{formatDate(item.date)}</span>
