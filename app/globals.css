@@ -45,7 +45,13 @@ a {
 }
 
 a:hover {
-  color: var(--dark-accent);
+  border-color:  var(--dark-accent);
+  color: var(--foreground);
+}
+
+button:hover {
+  border-color:  var(--dark-accent);
+  color: var(--foreground);
 }
 
 /* Add a subtle texture to the background */
@@ -64,4 +70,13 @@ body::before {
 
 .color-tarvo {
   color: #EA8600
+}
+
+.hover\:bg-accent:hover > * > * {
+  color: var(--foreground);
+  border-color: var(--foreground);
+}
+
+.hover\:bg-accent:hover > * > * > *  {
+  color: var(--foreground);
 }

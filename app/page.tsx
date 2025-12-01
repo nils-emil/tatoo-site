@@ -4,19 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="relative min-h-screen flex flex-col">
-      {/* Language Selector */}
-      <div className="absolute top-4 right-4 z-10">
-        <div className="flex space-x-2 text-sm">
-          <button className="text-accent hover:text-dark-accent transition-colors">EST</button>
-          <span className="text-foreground">/</span>
-          <button className="text-foreground hover:text-accent transition-colors">ENG</button>
-          <span className="text-foreground">/</span>
-          <button className="text-foreground hover:text-accent transition-colors">GER</button>
-        </div>
-      </div>
-
-      {/* Hero Section */}
-      <div 
+      <div
         className="flex-1 flex items-center justify-center"
       >
         <div className="flex items-center justify-center w-full">

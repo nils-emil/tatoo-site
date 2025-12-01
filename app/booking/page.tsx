@@ -77,7 +77,6 @@ export default function BookingPage() {
       {bookingType === 'calendar' && (
         <div className="max-w-2xl mx-auto">
           <div className="mb-8">
-            <h2 className="text-xl mb-4 text-center">Booking Form</h2>
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="cal-name" className="block mb-2 text-accent">Name</label>
@@ -187,7 +186,7 @@ export default function BookingPage() {
                   type="submit"
                   className="w-full py-3 px-6 bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-foreground transition-colors shadow-[0_0_10px_rgba(230,161,68,0.2)] hover:shadow-[0_0_15px_rgba(230,161,68,0.5)]"
                 >
-                  Book Appointment
+                  Submit
                 </button>
               </div>
             </form>
