@@ -27,8 +27,9 @@ body {
   background-position: center;
   background-attachment: fixed;
   color: var(--foreground);
+  font-weight: bold;
   font-family: var(--font-typewriter), monospace;
-  letter-spacing: 0.05em; /* Semi-wide letter spacing */
+  letter-spacing: 0.1em; /* Semi-wide letter spacing */
   min-height: 100vh;
 }
 
