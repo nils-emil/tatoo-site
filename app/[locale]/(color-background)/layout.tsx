@@ -1,7 +1,7 @@
 import "../../globals.css";
-import Navbar from "@/app/[locale]/components/Navbar";
-import Footer from "@/app/[locale]/components/Footer";
 import {Metadata} from "next";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -25,7 +25,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-    <body className="antialiased with-img">
+    <body className="antialiased with-color">
     <Navbar locale={locale}/>
     <main className="min-h-screen pt-16">{children}</main>
     <Footer/>

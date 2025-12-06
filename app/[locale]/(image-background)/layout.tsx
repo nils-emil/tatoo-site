@@ -1,7 +1,7 @@
-import "../globals.css";
-import Navbar from "@/app/[locale]/components/Navbar";
-import Footer from "@/app/[locale]/components/Footer";
+import "../../globals.css";
 import {Metadata} from "next";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
 
 interface RootLayoutProps {
   children: React.ReactNode;
