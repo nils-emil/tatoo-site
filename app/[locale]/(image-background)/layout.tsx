@@ -4,6 +4,7 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import {siteConfig} from "@/app/site-config";
 import LanguageSwitcher from "@/app/components/LanguageSwitcher";
+import {dmSans} from "@/app/font-config";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -47,7 +48,7 @@ export default async function RootLayout({
   const {locale} = await params;
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={`${dmSans.variable}`}>
     <body className="antialiased with-img">
     <Navbar locale={locale}/>
     <div className="absolute top-15 right-4 sm:right-22 z-10">

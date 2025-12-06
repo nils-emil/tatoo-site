@@ -2,7 +2,7 @@ import DotPattern from "@/app/components/DotPatterns";
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-gray py-8 border-t border-accent">
+    <footer className="bg-dark-gray py-8 border-t border-accent backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-3 items-center">
           <div></div>

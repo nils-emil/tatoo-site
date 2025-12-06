@@ -104,7 +104,7 @@ export default async function StoreContent({params}: { params: any }) {
                       className="group w-full block"
                     >
                       <div className="px-4 py-2 border-2 border-accent text-center transition-all hover:bg-accent">
-                        <p className="text-accent group-hover:text-dark-gray font-medium transition-colors">
+                        <p className="text-accent group-hover:text-foreground font-medium transition-colors">
                           {t.detailsBtn}
                         </p>
                       </div>
