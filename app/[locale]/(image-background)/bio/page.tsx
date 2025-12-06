@@ -49,11 +49,10 @@ export default async function BioPage({params}: { params: any }) {
     <div className="container mx-auto px-4 py-16">
       <h1 className="text-3xl md:text-4xl mb-8 text-center text-accent">{t.title}</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        {/* Portrait Photo */}
         <div className="flex justify-center md:justify-end">
           <div className="relative w-80 h-96 border-2 border-accent overflow-hidden">
             <img
-              src="http://95.216.209.117/tarvo.jpg"
+              src="/tarvo.jpg"
               alt="Portrait of Tattoo Artist"
               style={{objectFit: 'cover', objectPosition: 'center'}}
               className="w-full h-full"

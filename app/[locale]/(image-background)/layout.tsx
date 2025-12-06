@@ -22,17 +22,24 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en",
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ]
   },
   icons: {
     icon: "/favicon.ico",
   },
 };
-
 export default async function RootLayout({
                                            children,
                                            params,

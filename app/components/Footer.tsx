@@ -3,30 +3,17 @@ export default function Footer() {
     <footer className="bg-dark-gray py-8 border-t border-accent">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-3 items-center">
-          {/* Empty left section */}
           <div></div>
-
-          {/* 5-dot SVG in center */}
           <div className="flex justify-center">
             <svg width="30" height="30" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-              {/* Center dot */}
               <circle cx="20" cy="20" r="3" fill="currentColor" className="text-accent" />
-
-              {/* Top dot */}
               <circle cx="20" cy="8" r="3" fill="currentColor" className="text-accent" />
-
-              {/* Right dot */}
               <circle cx="32" cy="20" r="3" fill="currentColor" className="text-accent" />
-
-              {/* Bottom dot */}
               <circle cx="20" cy="32" r="3" fill="currentColor" className="text-accent" />
-
-              {/* Left dot */}
               <circle cx="8" cy="20" r="3" fill="currentColor" className="text-accent" />
             </svg>
           </div>
 
-          {/* Social Icons on right */}
           <div className="flex justify-end space-x-4">
             <a 
               href="https://www.instagram.com/tarvokerves"

@@ -3,7 +3,6 @@
 import {useState} from 'react';
 import Link from 'next/link';
 
-// Translation structure
 const translations = {
   en: {
     bio: "BIO",
@@ -33,17 +32,14 @@ type Locale = 'en' | 'et' | 'de';
 export default function Navbar({locale}: { locale: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Get translations based on locale, fallback to English
   const t = translations[locale as Locale] || translations.en;
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Helper to build localized links
   const getLink = (path: string) => `/${locale}${path}`;
 
-  // Define navigation items to map over (cleaner code)
   const navItems = [
     { label: t.bio, path: "/bio" },
     { label: t.gallery, path: "/gallery" },
@@ -67,10 +63,9 @@ export default function Navbar({locale}: { locale: string }) {
   return (
     <nav className="fixed top-0 left-0 w-full bg-dark-gray bg-opacity-90 backdrop-blur-sm z-[100]">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Logo */}
         <Link href={getLink("/")} className="flex items-center">
           <img
-            src="http://95.216.209.117/bird.png"
+            src="/bird.png"
             alt="Tattoo Artist Logo"
             width={40}
             height={40}
@@ -78,7 +73,6 @@ export default function Navbar({locale}: { locale: string }) {
           />
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center text-base tracking-widest">
           {navItems.map((item, index) => (
             <div key={item.path} className="flex items-center">
@@ -88,13 +82,11 @@ export default function Navbar({locale}: { locale: string }) {
               >
                 {item.label}
               </Link>
-              {/* Only show dots if it's not the last item */}
               {index < navItems.length - 1 && dots}
             </div>
           ))}
         </div>
 
-        {/* Mobile Burger Menu Button */}
         <button
           className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none"
           onClick={toggleMenu}
@@ -109,7 +101,6 @@ export default function Navbar({locale}: { locale: string }) {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
         <div

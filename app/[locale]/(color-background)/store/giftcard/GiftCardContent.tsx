@@ -2,7 +2,6 @@
 
 import {useState} from 'react';
 
-// Define the type for store images
 type StoreImage = {
   id: number;
   src: string;
@@ -11,25 +10,24 @@ type StoreImage = {
   aspectRatio?: 'square' | 'tall' | 'video';
 };
 
-// Store images data (Static data)
 const storeImages: StoreImage[] = [
   {
     id: 1,
-    src: "http://95.216.209.117/store/store1.jpg",
+    src: "/store/store1.jpg",
     alt: "Gift Card Design 1",
     type: 'image',
     aspectRatio: 'square'
   },
   {
     id: 3,
-    src: "http://95.216.209.117/store/store.mov",
+    src: "/store/store.mov",
     alt: "Video of Gift Card",
     type: 'video',
     aspectRatio: 'video'
   },
   {
     id: 2,
-    src: "http://95.216.209.117/store/store2.jpg",
+    src: "/store/store2.jpg",
     alt: "Gift Card Design 2",
     type: 'image',
     aspectRatio: 'square'
@@ -88,7 +86,6 @@ export default function GiftCardContent({locale}: { locale: string }) {
 
   return (
     <div className="relative min-h-screen">
-      {/* Floating Close Button for Mobile/General UX when modal is open */}
       {selectedImage && (
         <button
           type="button"
@@ -105,14 +102,11 @@ export default function GiftCardContent({locale}: { locale: string }) {
         <h1 className="text-3xl md:text-4xl mb-8 text-center text-accent">{t.title}</h1>
 
         <div className="max-w-4xl mx-auto">
-          {/* Introduction */}
           <div className="mb-12 text-center">
             <p className="text-light-gray">
               {t.intro}
             </p>
           </div>
-
-          {/* Gift Card Images */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {storeImages.map((image) => (
               <div
@@ -145,18 +139,13 @@ export default function GiftCardContent({locale}: { locale: string }) {
           </div>
 
           <div className="mb-12">
-            {/* Payment Methods Section */}
             <div className="border-2 border-accent bg-dark-gray bg-opacity-20 p-6 rounded-sm font-bold">
               <h2 className="text-2xl text-accent mb-4 text-center">{t.paymentTitle}</h2>
               <p className="text-light-gray text-center mb-6">
                 {t.paymentDesc}
               </p>
-
               <form onSubmit={handleSubmit} className="space-y-8">
-                {/* Payment Options */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-                  {/* Wise Payment Option */}
                   <div
                     className="border-2 border-accent p-4 hover:bg-accent hover:bg-opacity-10 transition-all duration-300 rounded-sm">
                     <button
@@ -172,8 +161,6 @@ export default function GiftCardContent({locale}: { locale: string }) {
                       <span className="text-accent hover:underline mt-2">{t.select}</span>
                     </button>
                   </div>
-
-                  {/* Venmo Payment Option */}
                   <div
                     className="border-2 border-accent p-4 hover:bg-accent hover:bg-opacity-10 transition-all duration-300 rounded-sm">
                     <button
@@ -190,7 +177,6 @@ export default function GiftCardContent({locale}: { locale: string }) {
                     </button>
                   </div>
 
-                  {/* Twint Payment Option */}
                   <div
                     className="border-2 border-accent p-4 hover:bg-accent hover:bg-opacity-10 transition-all duration-300 rounded-sm">
                     <button
@@ -214,7 +200,6 @@ export default function GiftCardContent({locale}: { locale: string }) {
         </div>
       </div>
 
-      {/* Lightbox */}
       {selectedImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4 backdrop-blur-sm"

@@ -2,61 +2,59 @@
 
 import {useState} from 'react';
 
-// Define the types for our gallery items
 type GalleryItem = {
   id: number;
   imageSrc: string;
 };
 
-// Gallery data using images from public/gallery folder
 const galleryItems: GalleryItem[] = [
   {
     id: 1,
-    imageSrc: "http://95.216.209.117/gallery/1.jpg"
+    imageSrc: "/gallery/1.jpg"
   },
   {
     id: 2,
-    imageSrc: "http://95.216.209.117/gallery/2.jpg"
+    imageSrc: "/gallery/2.jpg"
   },
   {
     id: 3,
-    imageSrc: "http://95.216.209.117/gallery/3.jpg"
+    imageSrc: "/gallery/3.jpg"
   },
   {
     id: 4,
-    imageSrc: "http://95.216.209.117/gallery/4.jpg"
+    imageSrc: "/gallery/4.jpg"
   },
   {
     id: 5,
-    imageSrc: "http://95.216.209.117/gallery/5.jpg"
+    imageSrc: "/gallery/5.jpg"
   },
   {
     id: 6,
-    imageSrc: "http://95.216.209.117/gallery/6.jpg"
+    imageSrc: "/gallery/6.jpg"
   },
   {
     id: 7,
-    imageSrc: "http://95.216.209.117/gallery/7.jpg"
+    imageSrc: "/gallery/7.jpg"
   },
   {
     id: 8,
-    imageSrc: "http://95.216.209.117/gallery/8.jpg"
+    imageSrc: "/gallery/8.jpg"
   },
   {
     id: 9,
-    imageSrc: "http://95.216.209.117/gallery/9.jpg"
+    imageSrc: "/gallery/9.jpg"
   },
   {
     id: 10,
-    imageSrc: "http://95.216.209.117/gallery/10.jpg"
+    imageSrc: "/gallery/10.jpg"
   },
   {
     id: 11,
-    imageSrc: "http://95.216.209.117/gallery/11.jpg"
+    imageSrc: "/gallery/11.jpg"
   },
   {
     id: 12,
-    imageSrc: "http://95.216.209.117/gallery/12.jpg"
+    imageSrc: "/gallery/12.jpg"
   }
 ];
 
@@ -64,7 +62,6 @@ export default function GalleryPage() {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
   return (
     <div className="container mx-auto px-6 md:px-12 lg:px-24 py-16">
-      {/* Gallery Grid */}
       {selectedItem && (
         <button
           type="button"
@@ -96,8 +93,6 @@ export default function GalleryPage() {
           </div>
         ))}
       </div>
-
-      {/* Lightbox */}
       {selectedItem && (
         <div
           className="fixed inset-0 bg-black bg-opacity-100 z-50 flex items-center justify-center p-4"

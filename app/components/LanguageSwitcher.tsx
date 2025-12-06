@@ -10,7 +10,6 @@ export default function LanguageSwitcher({ currentLocale }: LanguageSwitcherProp
   const pathname = usePathname();
   const router = useRouter();
 
-  // Map your locale codes to the display labels
   const languages = [
     { code: "et", label: "EST" },
     { code: "en", label: "ENG" },
@@ -19,14 +18,8 @@ export default function LanguageSwitcher({ currentLocale }: LanguageSwitcherProp
 
   const handleSwitch = (newLocale: string) => {
     if (!pathname) return;
-
-    // Split the path (e.g., "/en/about" -> ["", "en", "about"])
     const segments = pathname.split("/");
-
-    // Replace the locale segment (index 1) with the new locale
     segments[1] = newLocale;
-
-    // Join it back together and push
     const newPath = segments.join("/");
     router.push(newPath);
   };
@@ -39,14 +32,12 @@ export default function LanguageSwitcher({ currentLocale }: LanguageSwitcherProp
             onClick={() => handleSwitch(lang.code)}
             className={`transition-colors ${
               currentLocale === lang.code
-                ? "text-accent font-bold" // Active state styling
+                ? "text-accent font-bold"
                 : "text-foreground hover:text-accent"
             }`}
           >
             {lang.label}
           </button>
-
-          {/* Add the slash separator unless it's the last item */}
           {index < languages.length - 1 && (
             <span className="text-foreground ml-2">/</span>
           )}

@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "My App",
-  description: "The best app for X, Y, and Z.",
-  url: "https://domain.com",
-  ogImage: "https://domain.com/og.jpg",
+  name: "Tarvo Kerves - BASEL & TALLINN",
+  description: "Tarvo Kerves: Professional portfolio and creative work based in Basel, Switzerland and Tallinn, Estonia.",
+  url: "https://tarvokerves.com",
+  ogImage: "https://tarvokerves.com/og.jpg",
 }

@@ -1,9 +1,7 @@
-// components/BookingForm.tsx
 'use client';
 
 import {useState} from 'react';
 
-// You can keep translations here or move them to a separate file
 const translations = {
   en: {
     title: "BOOKING",
@@ -59,7 +57,6 @@ const translations = {
 };
 
 export default function BookingForm({locale}: { locale: string }) {
-  // Ensure locale matches one of your keys, fallback to 'en' if not
   const t = translations[locale as keyof typeof translations] || translations.en;
 
   const [bookingType, setBookingType] = useState<'calendar' | 'form'>('calendar');

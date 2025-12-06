@@ -11,36 +11,35 @@ button {
 /* Light mode override */
 @media (prefers-color-scheme: light) {
     :root {
-        color-scheme: light; /* Forces dark palette (same as default) */
-        --background: #2a2a2a; /* Deep gray, matte background */
-        --foreground: #f0f0f0; /* Off-white text */
-        --accent: #e6a144; /* Warm golden-orange accent color */
-        --dark-accent: #c48a3a; /* Darker version of accent for hover states */
-        --light-gray: #e0e0e0; /* Light gray for secondary text */
-        --dark-gray: #1a1a1a; /* Darker gray for backgrounds */
+        color-scheme: light;
+        --background: #2a2a2a;
+        --foreground: #f0f0f0;
+        --accent: #e6a144;
+        --dark-accent: #c48a3a;
+        --light-gray: #e0e0e0;
+        --dark-gray: #1a1a1a;
     }
 }
 
-/* Dark mode override */
 @media (prefers-color-scheme: dark) {
     :root {
-        color-scheme: dark; /* Same values for dark mode → identical appearance */
-        --background: #2a2a2a; /* Deep gray, matte background */
-        --foreground: #f0f0f0; /* Off-white text */
-        --accent: #e6a144; /* Warm golden-orange accent color */
-        --dark-accent: #c48a3a; /* Darker version of accent for hover states */
-        --light-gray: #e0e0e0; /* Light gray for secondary text */
-        --dark-gray: #1a1a1a; /* Darker gray for backgrounds */
+        color-scheme: dark;
+        --background: #2a2a2a;
+        --foreground: #f0f0f0;
+        --accent: #e6a144;
+        --dark-accent: #c48a3a;
+        --light-gray: #e0e0e0;
+        --dark-gray: #1a1a1a;
     }
 }
 
 :root {
-    --background: #2a2a2a; /* Deep gray, matte background */
-    --foreground: #f0f0f0; /* Off-white text */
-    --accent: #e6a144; /* Warm golden-orange accent color */
-    --dark-accent: #c48a3a; /* Darker version of accent for hover states */
-    --light-gray: #e0e0e0; /* Light gray for secondary text */
-    --dark-gray: #1a1a1a; /* Darker gray for backgrounds */
+    --background: #2a2a2a;
+    --foreground: #f0f0f0;
+    --accent: #e6a144;
+    --dark-accent: #c48a3a;
+    --light-gray: #e0e0e0;
+    --dark-gray: #1a1a1a;
 }
 
 @theme inline {
@@ -50,20 +49,13 @@ button {
 }
 
 .with-img {
-    /* ❌ Change this line */
-    /* background: var(--background); */
-
-    /* ✅ To this: */
     background-color: var(--background);
-
-    /* Keep the rest */
     background-image: url('/bg.webp');
     background-size: cover;
     background-position: center;
-
-    /* Recommended: Keeps image static while content scrolls */
     background-attachment: fixed;
 }
+
 .with-color {
     background: #1e2720;
 }
@@ -71,14 +63,11 @@ button {
 body {
     color: var(--foreground);
     font-weight: bold;
-    font-family: var(--font-typewriter), monospace;
-    letter-spacing: 0.1em; /* Semi-wide letter spacing */
+    letter-spacing: 0.1em;
     min-height: 100vh;
 }
 
-/* Global styles */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-typewriter), monospace;
     letter-spacing: 0.08em;
 }
 
@@ -97,7 +86,6 @@ button:hover {
     color: var(--foreground);
 }
 
-/* Add a subtle texture to the background */
 body::before {
     content: "";
     position: fixed;

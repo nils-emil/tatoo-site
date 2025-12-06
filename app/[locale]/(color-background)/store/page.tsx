@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-// Define the type for store items
 type StoreItem = {
   id: number;
   name: string;
@@ -10,7 +9,6 @@ type StoreItem = {
   url: string;
 };
 
-// Define the type for the full translation object
 type TranslationData = {
   title: string;
   intro: string;
@@ -28,7 +26,7 @@ const translations: Record<string, TranslationData> = {
         id: 1,
         name: "Gift Card",
         description: "Give the gift of art with a tattoo gift card - perfect for someone special who's been thinking about getting inked.",
-        imageSrc: "http://95.216.209.117/store/store1.jpg",
+        imageSrc: "/store/store1.jpg",
         price: "",
         url: "/en/store/giftcard"
       }
@@ -43,7 +41,7 @@ const translations: Record<string, TranslationData> = {
         id: 1,
         name: "Kinkekaart",
         description: "Kingi kunsti tätoveeringu kinkekaardiga – ideaalne kingitus kellelegi erilisele, kes on mõelnud tätoveeringu peale.",
-        imageSrc: "http://95.216.209.117/store/store1.jpg",
+        imageSrc: "/store/store1.jpg",
         price: "",
         url: "/et/store/giftcard"
       }
@@ -58,7 +56,7 @@ const translations: Record<string, TranslationData> = {
         id: 1,
         name: "Geschenkgutschein",
         description: "Verschenken Sie Kunst mit einem Tattoo-Gutschein – perfekt für jemanden, der schon lange über ein Tattoo nachdenkt.",
-        imageSrc: "http://95.216.209.117/store/store1.jpg",
+        imageSrc: "/store/store1.jpg",
         price: "",
         url: "/de/store/giftcard"
       }
@@ -76,14 +74,12 @@ export default async function StoreContent({params}: { params: any }) {
         <h1 className="text-3xl md:text-4xl mb-8 text-center text-accent">{t.title}</h1>
 
         <div className="max-w-4xl mx-auto">
-          {/* Introduction */}
           <div className="mb-12 text-center">
             <p className="text-light-gray">
               {t.intro}
             </p>
           </div>
 
-          {/* Store Items */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {t.items.map((item) => (
               <div

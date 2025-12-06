@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 
-// Define types for the content structure
 type AftercareSection = {
   title: string;
   todoTitle: string;
@@ -276,7 +275,6 @@ const translations: Record<string, TranslationData> = {
 };
 
 export default function AftercareContent({locale}: { locale: string }) {
-  // Fallback to English if locale not found
   const t = translations[locale as keyof typeof translations] || translations.en;
 
   return (
@@ -284,20 +282,17 @@ export default function AftercareContent({locale}: { locale: string }) {
       <h1 className="text-3xl md:text-4xl mb-8 text-center text-accent">{t.pageTitle}</h1>
 
       <div className="max-w-3xl mx-auto">
-        {/* Introduction */}
         <div className="mb-8 p-6 border-2 border-accent bg-dark-gray bg-opacity-50">
           <p className="text-light-gray">
             {t.introText}
           </p>
         </div>
 
-        {/* Dynamic Phases (Day 1-3, 4-6, 7-14) */}
         {t.phases.map((phase, index) => (
           <div key={index} className="mb-12">
             <h2 className="text-2xl text-accent mb-6">{phase.title}</h2>
 
             <div className="space-y-8">
-              {/* What To Do */}
               <div>
                 <h3 className="text-xl text-accent mb-3">{phase.todoTitle}</h3>
                 <ul className="space-y-4 text-light-gray">
@@ -309,8 +304,6 @@ export default function AftercareContent({locale}: { locale: string }) {
                   ))}
                 </ul>
               </div>
-
-              {/* What To Expect */}
               <div>
                 <h3 className="text-xl text-accent mb-3">{phase.expectTitle}</h3>
                 <ul className="space-y-4 text-light-gray">
@@ -322,8 +315,6 @@ export default function AftercareContent({locale}: { locale: string }) {
                   ))}
                 </ul>
               </div>
-
-              {/* Most Important */}
               <div>
                 <h3 className="text-xl text-accent mb-3">{phase.importantTitle}</h3>
                 <ul className="space-y-4 text-light-gray">
@@ -338,8 +329,6 @@ export default function AftercareContent({locale}: { locale: string }) {
             </div>
           </div>
         ))}
-
-        {/* Removing the Second Skin Bandage */}
         <div className="mb-12 p-6 border-2 border-accent bg-dark-gray bg-opacity-50">
           <h2 className="text-2xl text-accent mb-6">{t.bandageSection.title}</h2>
           <p className="text-light-gray mb-4">
@@ -349,8 +338,6 @@ export default function AftercareContent({locale}: { locale: string }) {
             {t.bandageSection.text2}
           </p>
         </div>
-
-        {/* Contact for Questions */}
         <div className="text-center border-t border-accent pt-8">
           <h2 className="text-xl text-accent mb-4">{t.contactSection.title}</h2>
           <p className="text-light-gray mb-4">
