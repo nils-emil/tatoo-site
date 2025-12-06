@@ -2,6 +2,7 @@
 
 import {useState} from 'react';
 import Link from 'next/link';
+import DotPattern from "@/app/components/DotPatterns";
 
 const translations = {
   en: {
@@ -50,13 +51,7 @@ export default function Navbar({locale}: { locale: string }) {
 
   const dots = (
     <div className="mx-2 md:mx-3 flex items-center">
-      <svg width="15" height="15" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="20" cy="20" r="3" fill="currentColor" className="text-accent"/>
-        <circle cx="20" cy="8" r="3" fill="currentColor" className="text-accent"/>
-        <circle cx="32" cy="20" r="3" fill="currentColor" className="text-accent"/>
-        <circle cx="20" cy="32" r="3" fill="currentColor" className="text-accent"/>
-        <circle cx="8" cy="20" r="3" fill="currentColor" className="text-accent"/>
-      </svg>
+      <DotPattern size={15} distance={6} dotRadius={1.4}></DotPattern>
     </div>
   );
 
@@ -78,7 +73,7 @@ export default function Navbar({locale}: { locale: string }) {
             <div key={item.path} className="flex items-center">
               <Link
                 href={getLink(item.path)}
-                className="text-foreground hover:text-accent transition-colors flex items-center pt-1"
+                className="text-foreground hover:text-accent transition-colors flex items-center"
               >
                 {item.label}
               </Link>

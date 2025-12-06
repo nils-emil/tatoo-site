@@ -3,6 +3,7 @@ import {Metadata} from "next";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import {siteConfig} from "@/app/site-config";
+import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -49,6 +50,9 @@ export default async function RootLayout({
     <html lang={locale}>
     <body className="antialiased with-color">
     <Navbar locale={locale}/>
+    <div className="absolute top-15 right-4 sm:right-22 z-10">
+      <LanguageSwitcher currentLocale={locale}/>
+    </div>
     <main className="min-h-screen pt-16">{children}</main>
     <Footer/>
     </body>

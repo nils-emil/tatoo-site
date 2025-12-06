@@ -50,7 +50,7 @@ export default async function RootLayout({
     <html lang={locale}>
     <body className="antialiased with-img">
     <Navbar locale={locale}/>
-    <div className="absolute top-15 right-15 z-10">
+    <div className="absolute top-15 right-4 sm:right-22 z-10">
       <LanguageSwitcher currentLocale={locale}/>
     </div>
     <main className="min-h-screen pt-16">{children}</main>

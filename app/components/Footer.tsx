@@ -1,3 +1,5 @@
+import DotPattern from "@/app/components/DotPatterns";
+
 export default function Footer() {
   return (
     <footer className="bg-dark-gray py-8 border-t border-accent">
@@ -5,13 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-3 items-center">
           <div></div>
           <div className="flex justify-center">
-            <svg width="30" height="30" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="20" cy="20" r="3" fill="currentColor" className="text-accent" />
-              <circle cx="20" cy="8" r="3" fill="currentColor" className="text-accent" />
-              <circle cx="32" cy="20" r="3" fill="currentColor" className="text-accent" />
-              <circle cx="20" cy="32" r="3" fill="currentColor" className="text-accent" />
-              <circle cx="8" cy="20" r="3" fill="currentColor" className="text-accent" />
-            </svg>
+            <DotPattern size={30} distance={12} dotRadius={2.5}></DotPattern>
           </div>
 
           <div className="flex justify-end space-x-4">
