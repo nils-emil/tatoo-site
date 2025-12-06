@@ -2,7 +2,7 @@
 export default function BioPage() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <h1 className="text-3xl md:text-4xl mb-8 text-center">BIO</h1>
+      <h1 className="text-3xl md:text-4xl mb-8 text-center text-accent">BIO</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {/* Portrait Photo (Optional) */}
@@ -28,7 +28,7 @@ export default function BioPage() {
           </div>
 
           <div className="mb-8">
-            <h2 className="text-xl mb-3 text-accent">Tattoo Style</h2>
+            <h2 className="text-xl mb-3 text-foreground">Tattoo Style</h2>
             <p className="text-light-gray">
               My style combines elements of blackwork, fine linework, and nature-inspired imagery.
               I specialize in creating designs that flow with the body's natural contours,

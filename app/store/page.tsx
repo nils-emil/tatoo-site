@@ -32,7 +32,7 @@ export default function StorePage() {
     <div className="relative min-h-screen">
       {/* Using site-wide background from bg.png */}
       <div className="container mx-auto px-4 py-16">
-        <h1 className="text-3xl md:text-4xl mb-8 text-center">STORE</h1>
+        <h1 className="text-3xl md:text-4xl mb-8 text-center text-accent">STORE</h1>
 
         <div className="max-w-4xl mx-auto">
           {/* Introduction */}

@@ -52,15 +52,21 @@ button {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
     --color-accent: var(--accent);
-    --font-typewriter: var(--font-typewriter);
 }
 
-body {
+.with-img {
     background: var(--background);
     background-image: url('/bg.webp');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+}
+
+.with-color {
+    background: #1e2720;
+
+}
+
+body {
     color: var(--foreground);
     font-weight: bold;
     font-family: var(--font-typewriter), monospace;

@@ -4,7 +4,7 @@ import {useState} from 'react';
 
 export default function BookingPage() {
 
-  const [bookingType, setBookingType] = useState<'calendar' | 'form'>('form');
+  const [bookingType, setBookingType] = useState<'calendar' | 'form'>('calendar');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -32,7 +32,7 @@ export default function BookingPage() {
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <h1 className="text-3xl md:text-4xl mb-8 text-center">BOOKING</h1>
+      <h1 className="text-3xl md:text-4xl mb-8 text-center text-accent">BOOKING</h1>
 
       {/* Instagram Booking Option */}
       <div className="max-w-2xl mx-auto mb-8 text-center">

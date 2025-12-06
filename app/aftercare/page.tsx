@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function AftercarePage() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <h1 className="text-3xl md:text-4xl mb-8 text-center">AFTERCARE</h1>
+      <h1 className="text-3xl md:text-4xl mb-8 text-center text-accent">AFTERCARE</h1>
 
       <div className="max-w-3xl mx-auto">
         {/* Introduction */}

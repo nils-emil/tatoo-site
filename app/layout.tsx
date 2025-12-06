@@ -1,28 +1,30 @@
-import type { Metadata } from "next";
+"use client"
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { usePathname } from "next/navigation";
 
 const equivalentLight = localFont({
   src: "../public/equivalent-light-1764509792-0/Equivalent-Light-SVG.otf",
   variable: "--font-typewriter",
 });
 
-export const metadata: Metadata = {
-  title: "Tarvo Kerves | Basel & Tallinn",
-  description: "Professional tattoo artist based in Basel and Tallinn. Specializing in dark, moody, nature-inspired designs.",
-};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const isSpecialPage = pathname === "/" || pathname === "/bio"  || pathname === "/gallery";
+
   return (
     <html lang="en">
       <body
-        className={`${equivalentLight.variable} antialiased`}
+        className={`antialiased ${
+          isSpecialPage ? "with-img" : "with-color"
+        }`}
       >
         <Navbar />
         <main className="min-h-screen pt-16">

@@ -69,6 +69,16 @@ export default function GalleryPage() {
   return (
     <div className="container mx-auto px-6 md:px-12 lg:px-24 py-16">
       {/* Gallery Grid */}
+      {selectedItem && (
+        <button
+          type="button"
+          aria-label="Close"
+          className="fixed top-10 right-10 z-500 bg-black border-2 border-accent text-white hover:bg-accent hover:text-black rounded-full w-10 h-10 flex items-center justify-center text-xl"
+          onClick={() => setSelectedItem(null)}
+        >
+          ✕
+        </button>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
         {galleryItems.map((item) => (
           <div 
@@ -118,7 +128,7 @@ export default function GalleryPage() {
             </button>
             <div className="bg-black border-2 border-accent relative flex items-center justify-center overflow-hidden h-[90vh]">
               {selectedItem && (
-                <img 
+                <img
                   src={selectedItem.imageSrc}
                   alt="Tattoo Gallery Large Image"
                   className="max-w-full h-full object-contain"

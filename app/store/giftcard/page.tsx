@@ -46,12 +46,24 @@ export default function StorePage() {
 
   return (
     <div className="relative min-h-screen">
+      {selectedImage && (
+        <button
+          type="button"
+          aria-label="Close"
+          className="fixed top-10 right-10 z-500 bg-black border-2 border-accent text-white hover:bg-accent hover:text-black rounded-full w-10 h-10 flex items-center justify-center text-xl"
+          onClick={() => setSelectedImage(null)}
+        >
+          ✕
+        </button>
+      )}
       {/* Using site-wide background from bg.png */}
       <div className="container mx-auto px-4 py-16">
+
         <h1 className="text-3xl md:text-4xl mb-8 text-center">GIFT CARDS</h1>
 
         <div className="max-w-4xl mx-auto">
           {/* Introduction */}
+
           <div className="mb-12 text-center">
             <p className="text-light-gray">
               I also offer gift cards. Give the gift of art with a tattoo gift card - perfect
@@ -59,17 +71,18 @@ export default function StorePage() {
             </p>
           </div>
 
+
           {/* Gift Card Images */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {storeImages.map((image) => (
               <div
                 key={image.id}
-                className={`border-2 border-accent overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(230,161,68,0.5)] ${
+                className={`border-2 border-accent overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105${
                   image.aspectRatio === 'video' ? 'md:col-span-1' : ''
                 }`}
                 onClick={() => setSelectedImage(image)}
               >
-                <div className={`relative aspect-square max-w-xs mx-auto aspect-square'}`}>
+                <div className={`relative aspect-square mx-auto aspect-square'}`}>
                   {image.type === 'video' ? (
                     <video
                       src={image.src}
@@ -158,42 +171,45 @@ export default function StorePage() {
 
       {/* Lightbox */}
       {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-100 z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}
-        >
+        <>
+
           <div
-            className="max-w-[90vw] relative"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-            }}
+            className="fixed inset-0 bg-black bg-opacity-100 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedImage(null)}
           >
-            <button
-              className="absolute top-2 right-2 text-light-gray hover:text-accent bg-dark-gray bg-opacity-50 rounded-full w-8 h-8 flex items-center justify-center"
-              onClick={() => setSelectedImage(null)}
-            >
-              ✕
-            </button>
             <div
-              className="bg-black border-2 border-accent relative flex items-center justify-center overflow-hidden">
-              {selectedImage.type === 'video' ? (
-                <video
-                  src={selectedImage.src}
-                  className="w-full object-contain"
-                  style={{maxHeight: '90vh'}}
-                  autoPlay
-                />
-              ) : (
-                <img
-                  className="relative max-h-[90vh]"
-                  src={selectedImage.src}
-                  alt={selectedImage.alt}
-                />
-              )}
+              className="max-w-[90vw] relative"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+              }}
+            >
+              <button
+                className="absolute top-2 right-2 text-light-gray hover:text-accent bg-dark-gray bg-opacity-50 rounded-full w-8 h-8 flex items-center justify-center"
+                onClick={() => setSelectedImage(null)}
+              >
+                ✕
+              </button>
+              <div
+                className="bg-black border-2 border-accent relative flex items-center justify-center overflow-hidden">
+                {selectedImage.type === 'video' ? (
+                  <video
+                    src={selectedImage.src}
+                    className="w-full object-contain"
+                    style={{maxHeight: '90vh'}}
+                    autoPlay
+                  />
+                ) : (
+                  <img
+                    className="relative max-h-[90vh]"
+                    src={selectedImage.src}
+                    alt={selectedImage.alt}
+                  />
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
