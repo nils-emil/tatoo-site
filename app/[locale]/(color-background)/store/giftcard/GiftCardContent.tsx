@@ -90,7 +90,7 @@ export default function GiftCardContent({locale}: { locale: string }) {
         <button
           type="button"
           aria-label="Close"
-          className="fixed top-10 right-10 z-[60] bg-black border-2 border-accent text-white hover:bg-accent hover:text-black rounded-full w-10 h-10 flex items-center justify-center text-xl"
+          className="fixed top-10 right-10 z-1500 bg-black border-2 border-accent text-white hover:bg-accent hover:text-black rounded-full w-10 h-10 flex items-center justify-center text-xl"
           onClick={() => setSelectedImage(null)}
         >
           ✕
@@ -202,7 +202,7 @@ export default function GiftCardContent({locale}: { locale: string }) {
 
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
+          className="fixed inset-0 bg-black bg-opacity-95 z-1000 flex items-center justify-center p-4 backdrop-blur-sm"
           onClick={() => setSelectedImage(null)}
         >
           <div

@@ -66,7 +66,7 @@ export default function GalleryPage() {
         <button
           type="button"
           aria-label="Close"
-          className="fixed top-10 right-10 z-500 bg-black border-2 border-accent text-white hover:bg-accent hover:text-black rounded-full w-10 h-10 flex items-center justify-center text-xl"
+          className="fixed top-10 right-10 z-1500 bg-black border-2 border-accent text-white hover:bg-accent hover:text-black rounded-full w-10 h-10 flex items-center justify-center text-xl"
           onClick={() => setSelectedItem(null)}
         >
           ✕
@@ -95,7 +95,7 @@ export default function GalleryPage() {
       </div>
       {selectedItem && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-100 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black bg-opacity-100 z-1000 flex items-center justify-center p-4"
           onClick={(e) => {
             e.preventDefault();
             setSelectedItem(null);

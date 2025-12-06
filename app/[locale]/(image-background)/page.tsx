@@ -6,7 +6,7 @@ export default function Home() {
         className="flex-1 flex items-center justify-center"
       >
         <div className="flex items-center flex-col gap-8 lg:flex-row justify-center w-full px-12">
-          <div className="text-2xl md:text-4xl tracking-[.4em] mr-0 lg:mr-16  color-tarvo">
+          <div className="text-2xl md:text-4xl tracking-[.4em] mr-0 lg:mr-16 color-tarvo">
             BASEL
           </div>
           <div className="relative w-32 h-32 md:w-48 md:h-48">
