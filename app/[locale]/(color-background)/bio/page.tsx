@@ -42,9 +42,9 @@ const translations = {
   }
 };
 
-export default async function BioPage({params}) {
+export default async function BioPage({params}: { params: any }) {
   const {locale} = await params;
-  const t = translations[locale]
+  const t = translations[locale as keyof typeof translations] || translations.en;
   return (
     <div className="container mx-auto px-4 py-16">
       <h1 className="text-3xl md:text-4xl mb-8 text-center text-accent">{t.title}</h1>

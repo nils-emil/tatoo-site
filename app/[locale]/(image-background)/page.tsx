@@ -1,5 +1,3 @@
-import LanguageSwitcher from "@/app/components/LanguageSwitcher";
-
 export default function Home() {
   return (
     <div className="relative min-h-screen flex flex-col">
@@ -18,8 +16,8 @@ export default function Home() {
             <div className="absolute inset-0 flex items-center justify-center">
               <img
                 src="http://95.216.209.117/bird.png"
-                alt="Tattoo Artist Logo" 
-                width={200} 
+                alt="Tattoo Artist Logo"
+                width={200}
                 height={200}
                 className="w-full h-full"
               />

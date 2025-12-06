@@ -1,16 +1,56 @@
 'use client';
 
-import { useState } from 'react';
+import {useState} from 'react';
 import Link from 'next/link';
 
-export default function Navbar({ locale }: { locale: string }) {
+// Translation structure
+const translations = {
+  en: {
+    bio: "BIO",
+    gallery: "GALLERY",
+    booking: "BOOKING",
+    aftercare: "AFTERCARE",
+    store: "STORE"
+  },
+  et: {
+    bio: "BIO",
+    gallery: "GALERII",
+    booking: "BRONEERIMINE",
+    aftercare: "JÄRELHOOLDUS",
+    store: "POOD"
+  },
+  de: {
+    bio: "BIO",
+    gallery: "GALERIE",
+    booking: "BUCHUNG",
+    aftercare: "NACHSORGE",
+    store: "SHOP"
+  }
+};
+
+type Locale = 'en' | 'et' | 'de';
+
+export default function Navbar({locale}: { locale: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Get translations based on locale, fallback to English
+  const t = translations[locale as Locale] || translations.en;
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  console.log(locale)
+  // Helper to build localized links
+  const getLink = (path: string) => `/${locale}${path}`;
+
+  // Define navigation items to map over (cleaner code)
+  const navItems = [
+    { label: t.bio, path: "/bio" },
+    { label: t.gallery, path: "/gallery" },
+    { label: t.booking, path: "/booking" },
+    { label: t.aftercare, path: "/aftercare" },
+    { label: t.store, path: "/store" },
+  ];
 
   const dots = (
     <div className="mx-2 md:mx-3 flex items-center">
@@ -24,14 +64,11 @@ export default function Navbar({ locale }: { locale: string }) {
     </div>
   );
 
-  // Helper to build localized links
-  const link = (path: string) => `/${locale}${path}`;
-
   return (
-    <nav className="fixed top-0 left-0 w-full bg-dark-gray bg-opacity-90 backdrop-blur-sm z-50">
+    <nav className="fixed top-0 left-0 w-full bg-dark-gray bg-opacity-90 backdrop-blur-sm z-[100]">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link href={link("/")} className="flex items-center">
+        <Link href={getLink("/")} className="flex items-center">
           <img
             src="http://95.216.209.117/bird.png"
             alt="Tattoo Artist Logo"
@@ -43,15 +80,18 @@ export default function Navbar({ locale }: { locale: string }) {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center text-base tracking-widest">
-          <Link href={link("/bio")} className="text-foreground hover:text-accent transition-colors flex items-center pt-1">BIO</Link>
-          {dots}
-          <Link href={link("/gallery")} className="text-foreground hover:text-accent transition-colors flex items-center pt-1">GALLERY</Link>
-          {dots}
-          <Link href={link("/booking")} className="text-foreground hover:text-accent transition-colors flex items-center pt-1">BOOKING</Link>
-          {dots}
-          <Link href={link("/aftercare")} className="text-foreground hover:text-accent transition-colors flex items-center pt-1">AFTERCARE</Link>
-          {dots}
-          <Link href={link("/store")} className="text-foreground hover:text-accent transition-colors flex items-center pt-1">STORE</Link>
+          {navItems.map((item, index) => (
+            <div key={item.path} className="flex items-center">
+              <Link
+                href={getLink(item.path)}
+                className="text-foreground hover:text-accent transition-colors flex items-center pt-1"
+              >
+                {item.label}
+              </Link>
+              {/* Only show dots if it's not the last item */}
+              {index < navItems.length - 1 && dots}
+            </div>
+          ))}
         </div>
 
         {/* Mobile Burger Menu Button */}
@@ -60,20 +100,30 @@ export default function Navbar({ locale }: { locale: string }) {
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-0.5 bg-accent transform transition duration-300 ease-in-out ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`block w-6 h-0.5 bg-accent transition duration-300 ease-in-out ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-          <span className={`block w-6 h-0.5 bg-accent transform transition duration-300 ease-in-out ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          <span
+            className={`block w-6 h-0.5 bg-accent transform transition duration-300 ease-in-out ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+          <span
+            className={`block w-6 h-0.5 bg-accent transition duration-300 ease-in-out ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+          <span
+            className={`block w-6 h-0.5 bg-accent transform transition duration-300 ease-in-out ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className="container mx-auto px-4 py-4 flex flex-col space-y-4 bg-dark-gray bg-opacity-95 border-t border-accent">
-          <Link href={link("/bio")} className="text-foreground hover:text-accent transition-colors py-2 text-center" onClick={() => setIsMenuOpen(false)}>BIO</Link>
-          <Link href={link("/gallery")} className="text-foreground hover:text-accent transition-colors py-2 text-center" onClick={() => setIsMenuOpen(false)}>GALLERY</Link>
-          <Link href={link("/booking")} className="text-foreground hover:text-accent transition-colors py-2 text-center" onClick={() => setIsMenuOpen(false)}>BOOKING</Link>
-          <Link href={link("/aftercare")} className="text-foreground hover:text-accent transition-colors py-2 text-center" onClick={() => setIsMenuOpen(false)}>AFTERCARE</Link>
-          <Link href={link("/store")} className="text-foreground hover:text-accent transition-colors py-2 text-center" onClick={() => setIsMenuOpen(false)}>STORE</Link>
+      <div
+        className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div
+          className="container mx-auto px-4 py-4 flex flex-col space-y-4 bg-dark-gray bg-opacity-95 border-t border-accent">
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              href={getLink(item.path)}
+              className="text-foreground hover:text-accent transition-colors py-2 text-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
       </div>
     </nav>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import {useState} from 'react';
 
 // Define the types for our gallery items
 type GalleryItem = {
@@ -77,8 +77,8 @@ export default function GalleryPage() {
       )}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
         {galleryItems.map((item) => (
-          <div 
-            key={item.id} 
+          <div
+            key={item.id}
             className="aspect-square border-2 border-accent cursor-pointer overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_10px_rgba(230,161,68,0.5)]"
             onClick={(e) => {
               e.preventDefault();
@@ -99,21 +99,21 @@ export default function GalleryPage() {
 
       {/* Lightbox */}
       {selectedItem && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-100 z-50 flex items-center justify-center p-4" 
+        <div
+          className="fixed inset-0 bg-black bg-opacity-100 z-50 flex items-center justify-center p-4"
           onClick={(e) => {
             e.preventDefault();
             setSelectedItem(null);
           }}
         >
-          <div 
-            className="max-w-[90vw] relative" 
+          <div
+            className="max-w-[90vw] relative"
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
             }}
           >
-            <button 
+            <button
               className="absolute top-2 right-2 text-light-gray hover:text-accent bg-dark-gray bg-opacity-50 rounded-full w-8 h-8 flex items-center justify-center"
               onClick={(e) => {
                 e.preventDefault();
@@ -122,7 +122,8 @@ export default function GalleryPage() {
             >
               ✕
             </button>
-            <div className="bg-black border-2 border-accent relative flex items-center justify-center overflow-hidden h-[90vh]">
+            <div
+              className="bg-black border-2 border-accent relative flex items-center justify-center overflow-hidden h-[90vh]">
               {selectedItem && (
                 <img
                   src={selectedItem.imageSrc}
