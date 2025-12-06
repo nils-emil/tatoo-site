@@ -62,16 +62,6 @@ export default function GalleryPage() {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
   return (
     <div className="container mx-auto px-6 md:px-12 lg:px-24 py-16">
-      {selectedItem && (
-        <button
-          type="button"
-          aria-label="Close"
-          className="fixed top-10 right-10 z-1500 bg-black border-2 border-accent text-white hover:bg-accent hover:text-black rounded-full w-10 h-10 flex items-center justify-center text-xl"
-          onClick={() => setSelectedItem(null)}
-        >
-          ✕
-        </button>
-      )}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
         {galleryItems.map((item) => (
           <div
@@ -95,7 +85,7 @@ export default function GalleryPage() {
       </div>
       {selectedItem && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-100 z-1000 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black bg-opacity-100 z-1000 flex items-center justify-center p-4 color-tarvo"
           onClick={(e) => {
             e.preventDefault();
             setSelectedItem(null);
@@ -109,7 +99,7 @@ export default function GalleryPage() {
             }}
           >
             <button
-              className="absolute top-2 right-2 text-light-gray hover:text-accent bg-dark-gray bg-opacity-50 rounded-full w-8 h-8 flex items-center justify-center"
+              className="absolute top-2 right-2 z-1500 text-light-gray hover:text-accent bg-dark-gray bg-opacity-50 rounded-full w-8 h-8 flex items-center text-foreground justify-center"
               onClick={(e) => {
                 e.preventDefault();
                 setSelectedItem(null);

@@ -73,8 +73,6 @@ const translations = {
   }
 };
 
-type Locale = 'en' | 'et' | 'de';
-
 export default function GiftCardContent({locale}: { locale: string }) {
   const t = translations[locale as keyof typeof translations] || translations.en;
   const [selectedImage, setSelectedImage] = useState<StoreImage | null>(null);
@@ -86,21 +84,8 @@ export default function GiftCardContent({locale}: { locale: string }) {
 
   return (
     <div className="relative min-h-screen">
-      {selectedImage && (
-        <button
-          type="button"
-          aria-label="Close"
-          className="fixed top-10 right-10 z-1500 bg-black border-2 border-accent text-white hover:bg-accent hover:text-black rounded-full w-10 h-10 flex items-center justify-center text-xl"
-          onClick={() => setSelectedImage(null)}
-        >
-          ✕
-        </button>
-      )}
-
       <div className="container mx-auto px-4 py-16">
-
         <h1 className="text-3xl md:text-4xl mb-8 text-center text-accent">{t.title}</h1>
-
         <div className="max-w-4xl mx-auto">
           <div className="mb-12 text-center">
             <p className="text-light-gray">
