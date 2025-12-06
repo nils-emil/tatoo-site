@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-
-body {
-    background: darkgreen;
-}
-
 html {
     color-scheme: dark light;
 }
@@ -55,15 +50,22 @@ button {
 }
 
 .with-img {
-    background: var(--background);
+    /* ❌ Change this line */
+    /* background: var(--background); */
+
+    /* ✅ To this: */
+    background-color: var(--background);
+
+    /* Keep the rest */
     background-image: url('/bg.webp');
     background-size: cover;
     background-position: center;
-}
 
+    /* Recommended: Keeps image static while content scrolls */
+    background-attachment: fixed;
+}
 .with-color {
     background: #1e2720;
-
 }
 
 body {

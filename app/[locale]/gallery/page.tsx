@@ -62,10 +62,6 @@ const galleryItems: GalleryItem[] = [
 
 export default function GalleryPage() {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
-
-  // Log when selectedItem changes
-  console.log('Selected item:', selectedItem);
-
   return (
     <div className="container mx-auto px-6 md:px-12 lg:px-24 py-16">
       {/* Gallery Grid */}
