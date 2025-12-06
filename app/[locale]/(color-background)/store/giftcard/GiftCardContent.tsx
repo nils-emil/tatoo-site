@@ -20,7 +20,7 @@ const storeImages: StoreImage[] = [
   },
   {
     id: 3,
-    src: "/store/store.mov",
+    src: "/store/store.mp4",
     alt: "Video of Gift Card",
     type: 'video',
     aspectRatio: 'video'
