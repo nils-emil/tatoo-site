@@ -1,6 +1,9 @@
+import LanguageSwitcher from "@/app/components/LanguageSwitcher";
+
 export default function Home() {
   return (
     <div className="relative min-h-screen flex flex-col">
+
       <div
         className="flex-1 flex items-center justify-center"
       >

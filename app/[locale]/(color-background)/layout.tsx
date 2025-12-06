@@ -9,7 +9,7 @@ interface RootLayoutProps {
 }
 
 export function generateStaticParams() {
-  return [{locale: "en"}, {locale: "et"}];
+  return [{locale: "en"}, {locale: "et"}, {locale: "de"}];
 }
 
 export const metadata: Metadata = {
