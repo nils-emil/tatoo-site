@@ -30,7 +30,7 @@ const translations = {
 
 type Locale = 'en' | 'et' | 'de';
 
-export default function Navbar({locale}: { locale: string }) {
+export default function Navbar({locale, hazy}: { locale: string, hazy: boolean }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const t = translations[locale as Locale] || translations.en;
@@ -51,13 +51,14 @@ export default function Navbar({locale}: { locale: string }) {
 
   const dots = (
     <div className="mx-2 md:mx-3 flex items-center">
-      <DotPattern size={15} distance={6} dotRadius={1.4}></DotPattern>
+      <DotPattern size={15} distance={6} dotRadius={1}></DotPattern>
     </div>
   );
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-dark-gray bg-opacity-90 backdrop-blur-sm z-[100]">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+    <nav
+      className={`fixed top-0 left-0 w-full bg-dark-gray bg-opacity-90 z-[100] ${hazy ? "backdrop-blur-sm" : ""}`}>
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-12">
         <Link href={getLink("/")} className="flex items-center">
           <img
             src="/bird.png"
@@ -67,9 +68,9 @@ export default function Navbar({locale}: { locale: string }) {
             className="h-10 w-10"
           />
         </Link>
-
         <div className="hidden md:flex items-center text-base tracking-widest">
           {navItems.map((item, index) => (
+            <>
             <div key={item.path} className="flex items-center">
               <Link
                 href={getLink(item.path)}
@@ -77,8 +78,9 @@ export default function Navbar({locale}: { locale: string }) {
               >
                 {item.label}
               </Link>
-              {index < navItems.length - 1 && dots}
             </div>
+              {index < navItems.length - 1 && dots}
+            </>
           ))}
         </div>
 

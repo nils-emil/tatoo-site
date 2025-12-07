@@ -25,14 +25,14 @@ export default function LanguageSwitcher({ currentLocale }: LanguageSwitcherProp
   };
 
   return (
-    <div className="flex space-x-2 text-sm">
+    <div className="flex space-x-2 text-md pt-6 elina">
       {languages.map((lang, index) => (
         <div key={lang.code} className="flex items-center">
           <button
             onClick={() => handleSwitch(lang.code)}
             className={`transition-colors ${
               currentLocale === lang.code
-                ? "text-accent font-bold"
+                ? "text-accent"
                 : "text-foreground hover:text-accent"
             }`}
           >

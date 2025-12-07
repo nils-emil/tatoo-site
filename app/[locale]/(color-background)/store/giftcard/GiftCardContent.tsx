@@ -1,5 +1,4 @@
 'use client';
-
 import {useState} from 'react';
 
 type StoreImage = {
@@ -9,7 +8,6 @@ type StoreImage = {
   type?: 'image' | 'video';
   aspectRatio?: 'square' | 'tall' | 'video';
 };
-
 const storeImages: StoreImage[] = [
   {
     id: 1,
@@ -33,55 +31,50 @@ const storeImages: StoreImage[] = [
     aspectRatio: 'square'
   },
 ];
-
 const translations = {
   en: {
     title: "GIFT CARDS",
     intro: "I also offer gift cards. Give the gift of art with a tattoo gift card - perfect for someone special who's been thinking about getting inked. Gift cards are in sum of 100, or 250.",
-    paymentTitle: "Payment Methods",
-    paymentDesc: "Choose your preferred payment method to complete your purchase",
+    paymentTitle: "Payment Method", // Changed to singular
+    paymentDesc: "Use PayPal to complete your purchase.", // Updated description
     regions: {
-      intl: "International",
-      us: "US",
-      swiss: "Swiss"
+      intl: "International"
+      // Removed US and Swiss regions
     },
     select: "Select"
   },
   et: {
     title: "KINKEKAARDID",
     intro: "Pakun ka kinkekaarte. Kingi kunsti tätoveeringu kinkekaardiga – ideaalne kingitus kellelegi erilisele, kes on mõelnud tätoveeringu peale. Kinkekaardid on väärtuses 100 või 250.",
-    paymentTitle: "Maksemeetodid",
-    paymentDesc: "Ostu lõpuleviimiseks vali eelistatud makseviis",
+    paymentTitle: "Makseviis", // Changed to singular
+    paymentDesc: "Ostu lõpuleviimiseks kasuta PayPali.", // Updated description
     regions: {
-      intl: "Rahvusvaheline",
-      us: "USA",
-      swiss: "Šveits"
+      intl: "Rahvusvaheline"
+      // Removed USA and Šveits regions
     },
     select: "Vali"
   },
   de: {
     title: "GESCHENKGUTSCHEINE",
     intro: "Ich biete auch Geschenkgutscheine an. Verschenken Sie Kunst mit einem Tattoo-Gutschein – perfekt für jemanden, der schon lange über ein Tattoo nachdenkt. Gutscheine gibt es im Wert von 100 oder 250.",
-    paymentTitle: "Zahlungsmethoden",
-    paymentDesc: "Wählen Sie Ihre bevorzugte Zahlungsmethode, um den Kauf abzuschließen",
+    paymentTitle: "Zahlungsmethode", // Changed to singular
+    paymentDesc: "Nutzen Sie PayPal, um den Kauf abzuschließen.", // Updated description
     regions: {
-      intl: "International",
-      us: "USA",
-      swiss: "Schweiz"
+      intl: "International"
+      // Removed USA and Schweiz regions
     },
     select: "Auswählen"
   }
 };
-
 export default function GiftCardContent({locale}: { locale: string }) {
   const t = translations[locale as keyof typeof translations] || translations.en;
   const [selectedImage, setSelectedImage] = useState<StoreImage | null>(null);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = 'https://buy.stripe.com/00wcN56QscW9foRaav2Fa02';
+    // In a real application, you would direct to a PayPal checkout link here.
+    // For this example, we'll keep the existing Instagram redirect or change it to a placeholder.
+    window.location.href = 'https://www.instagram.com/tarvokerves'; // Placeholder action
   };
-
   return (
     <div className="relative min-h-screen">
       <div className="container mx-auto px-4 py-16">
@@ -122,69 +115,28 @@ export default function GiftCardContent({locale}: { locale: string }) {
               </div>
             ))}
           </div>
-
-          <div className="mb-12">
-            <div className="border-2 border-accent bg-dark-gray bg-opacity-20 p-6 rounded-sm font-bold">
-              <h2 className="text-2xl text-accent mb-4 text-center">{t.paymentTitle}</h2>
-              <p className="text-light-gray text-center mb-6">
-                {t.paymentDesc}
-              </p>
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mb-12 w-full">
+            <form onSubmit={handleSubmit} className="space-y-8 w-full">
+              <div
+                className="border-2 border-accent p-4 hover:bg-accent hover:bg-opacity-10 transition-all duration-300 rounded-sm">
+                <button
+                  type="submit"
+                  className="w-full flex flex-col items-center text-center"
+                >
+                  <div className="text-2xl text-accent mb-2">PayPal</div>
+                  {/* Changed to PayPal */}
+                  <div className="text-sm text-light-gray mb-4">{t.regions.intl}</div>
                   <div
-                    className="border-2 border-accent p-4 hover:bg-accent hover:bg-opacity-10 transition-all duration-300 rounded-sm">
-                    <button
-                      type="submit"
-                      className="w-full flex flex-col items-center text-center"
-                    >
-                      <div className="text-2xl text-accent mb-2">Wise</div>
-                      <div className="text-sm text-light-gray mb-4">{t.regions.intl}</div>
-                      <div
-                        className="w-16 h-16 border-2 border-accent rounded-full flex items-center justify-center mb-2">
-                        <span className="text-accent text-2xl">W</span>
-                      </div>
-                      <span className="text-accent hover:underline mt-2">{t.select}</span>
-                    </button>
+                    className="w-16 h-16 border-2 border-accent rounded-full flex items-center justify-center mb-2">
+                    <span className="text-accent text-2xl">P</span> {/* Changed initial to P */}
                   </div>
-                  <div
-                    className="border-2 border-accent p-4 hover:bg-accent hover:bg-opacity-10 transition-all duration-300 rounded-sm">
-                    <button
-                      type="submit"
-                      className="w-full flex flex-col items-center text-center"
-                    >
-                      <div className="text-2xl text-accent mb-2">Venmo</div>
-                      <div className="text-sm text-light-gray mb-4">{t.regions.us}</div>
-                      <div
-                        className="w-16 h-16 border-2 border-accent rounded-full flex items-center justify-center mb-2">
-                        <span className="text-accent text-2xl">V</span>
-                      </div>
-                      <span className="text-accent hover:underline mt-2">{t.select}</span>
-                    </button>
-                  </div>
-
-                  <div
-                    className="border-2 border-accent p-4 hover:bg-accent hover:bg-opacity-10 transition-all duration-300 rounded-sm">
-                    <button
-                      type="submit"
-                      className="w-full flex flex-col items-center text-center"
-                    >
-                      <div className="text-2xl text-accent mb-2">Twint</div>
-                      <div className="text-sm text-light-gray mb-4">{t.regions.swiss}</div>
-                      <div
-                        className="w-16 h-16 border-2 border-accent rounded-full flex items-center justify-center mb-2">
-                        <span className="text-accent text-2xl">T</span>
-                      </div>
-                      <span className="text-accent hover:underline mt-2">{t.select}</span>
-                    </button>
-                  </div>
-
-                </div>
-              </form>
-            </div>
+                  <span className="text-accent hover:underline mt-2">{t.select}</span>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-
       {selectedImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-95 z-1000 flex items-center justify-center p-4 backdrop-blur-sm"

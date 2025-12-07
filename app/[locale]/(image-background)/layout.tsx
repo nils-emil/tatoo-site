@@ -50,10 +50,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${dmSans.variable}`}>
     <body className="antialiased with-img">
-    <Navbar locale={locale}/>
-    <div className="absolute top-15 right-4 sm:right-22 z-10">
-      <LanguageSwitcher currentLocale={locale}/>
-    </div>
+    <Navbar locale={locale} hazy={false}/>
     <main className="min-h-screen pt-16">{children}</main>
     <Footer/>
     </body>

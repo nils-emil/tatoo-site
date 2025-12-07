@@ -4,8 +4,6 @@ html {
     color-scheme: dark light;
 }
 
-
-
 button {
     cursor: pointer;
 }
@@ -16,7 +14,7 @@ button {
         color-scheme: light;
         --background: #2a2a2a;
         --foreground: #f0f0f0;
-        --accent: #e6a144;
+        --accent: #EB8700;
         --dark-accent: #c48a3a;
         --light-gray: #e0e0e0;
         --dark-gray: #1a1a1a;
@@ -28,7 +26,7 @@ button {
         color-scheme: dark;
         --background: #2a2a2a;
         --foreground: #f0f0f0;
-        --accent: #e6a144;
+        --accent: #EB8700;
         --dark-accent: #c48a3a;
         --light-gray: #e0e0e0;
         --dark-gray: #1a1a1a;
@@ -38,7 +36,7 @@ button {
 :root {
     --background: #2a2a2a;
     --foreground: #f0f0f0;
-    --accent: #e6a144;
+    --accent: #EB8700;
     --dark-accent: #c48a3a;
     --light-gray: #e0e0e0;
     --dark-gray: #1a1a1a;
@@ -102,6 +100,7 @@ body::before {
 
 .color-tarvo {
     color: #EA8600 !important;
+    font-weight: 300;
 }
 
 .hover\:bg-accent:hover > * > * {
@@ -120,4 +119,27 @@ textarea::placeholder {
 
 body {
     font-family: var(--font-dm-sans), sans-serif;
+}
+
+.city-text {
+    font-size: 1.5rem;
+    letter-spacing: 1.25rem;
+}
+
+.lang-select-text {
+    letter-spacing: 0px;
+}
+
+
+
+@font-face {
+    font-family: 'Eina 01';
+    src: url('/fonts/Eina01-Light.woff2') format('woff2'), url('/fonts/Eina01-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+.elina {
+    font-family: 'Eina 01', system-ui, -apple-system, sans-serif;
 }

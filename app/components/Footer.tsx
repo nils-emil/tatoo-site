@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-3 items-center">
           <div></div>
           <div className="flex justify-center">
-            <DotPattern size={30} distance={12} dotRadius={2.5}></DotPattern>
+            <DotPattern size={30} distance={12} dotRadius={1.7}></DotPattern>
           </div>
 
           <div className="flex justify-end space-x-4">
